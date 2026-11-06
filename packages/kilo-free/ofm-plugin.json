@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "kilo-free",
+  "version": "1.0.0",
+  "type": "channel",
+  "name": "Kilo Free",
+  "description": "The Kilo gateway's free tier as a keyless channel. Takes the built-in Kilo lane over; no API key required.",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "minHost": "2.8.1",
+  "permissions": {
+    "network": [
+      "https://ai-gateway.kilo.ai",
+      "https://api.kilo.ai"
+    ],
+    "secrets": [],
+    "storage": false
+  },
+  "replaces": "kilo",
+  "models": [
+    { "id": "kilo-auto/free", "name": "Kilo Auto", "contextWindow": 256000, "maxOutput": 32768, "vision": false, "reasoning": false, "wire": "chat" },
+    { "id": "nvidia/nemotron-3.5-super-vl:free", "name": "Nemotron 3.5 Super VL", "contextWindow": 262144, "maxOutput": 32768, "vision": true, "reasoning": false, "wire": "chat" },
+    { "id": "reflection/beam-free", "name": "Beam", "contextWindow": 131072, "maxOutput": 16384, "vision": false, "reasoning": true, "wire": "chat" },
+    { "id": "stealth/glyph-cluster", "name": "Glyph Cluster", "contextWindow": 200000, "maxOutput": 32768, "vision": false, "reasoning": true, "wire": "chat" },
+    { "id": "stealth/crouton-alpha", "name": "Crouton Alpha", "contextWindow": 200000, "maxOutput": 32768, "vision": false, "reasoning": false, "wire": "chat" },
+    { "id": "dots-studio/dots-3-note-preview:free", "name": "Dots 3 Note Preview", "contextWindow": 131072, "maxOutput": 16384, "vision": false, "reasoning": false, "wire": "chat" },
+    { "id": "nvidia/nemotron-3.5-lightning:free", "name": "Nemotron 3.5 Lightning", "contextWindow": 262144, "maxOutput": 16384, "vision": false, "reasoning": false, "wire": "chat" },
+    { "id": "cohere/north-mini-code:free", "name": "North Mini Code", "contextWindow": 256000, "maxOutput": 32768, "vision": false, "reasoning": false, "wire": "chat" },
+    { "id": "nvidia/nemotron-3-ultra-550b-a55b:free", "name": "Nemotron 3 Ultra 550B", "contextWindow": 262144, "maxOutput": 32768, "vision": false, "reasoning": true, "wire": "chat" },
+    { "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free", "name": "Nemotron 3 Nano Omni 30B", "contextWindow": 262144, "maxOutput": 32768, "vision": true, "reasoning": true, "wire": "chat" },
+    { "id": "openrouter/free", "name": "OpenRouter Free", "contextWindow": 131072, "maxOutput": 16384, "vision": false, "reasoning": false, "wire": "chat" }
+  ],
+  "config": [],
+  "summary": "The Kilo gateway's free model tier as a keyless channel — takes the built-in Kilo lane over with no API key required.",
+  "tags": ["free", "gateway", "kilo", "no-key"],
+  "publishedAt": "2026-11-07T00:00:00.000Z"
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "openai-compatible",
+  "version": "1.0.0",
+  "type": "channel",
+  "name": "OpenAI-Compatible",
+  "description": "Point the harness at any OpenAI-compatible /chat/completions server — OpenAI itself, Ollama, LM Studio, llama.cpp, vLLM, or a loopback proxy.",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "minHost": "2.8.1",
+  "permissions": {
+    "network": [
+      "https://api.openai.com",
+      "http://127.0.0.1:11434",
+      "http://127.0.0.1:1234",
+      "http://127.0.0.1:8080",
+      "http://127.0.0.1:8000",
+      "http://[::1]:11434"
+    ],
+    "secrets": [
+      "apiKey"
+    ],
+    "storage": false
+  },
+  "models": [
+    { "id": "example-model-a", "name": "Example Model A (edit the manifest models list)", "contextWindow": 131072, "maxOutput": 16384, "vision": false, "reasoning": false, "wire": "chat" },
+    { "id": "example-model-b", "name": "Example Model B (edit the manifest models list)", "contextWindow": 131072, "maxOutput": 16384, "vision": false, "reasoning": true, "wire": "chat" }
+  ],
+  "config": [
+    {
+      "key": "baseUrl",
+      "type": "text",
+      "label": "Base URL",
+      "description": "The server root, e.g. https://api.openai.com/v1 or http://127.0.0.1:11434/v1. Its origin must be one this package's permissions declare.",
+      "default": "https://api.openai.com/v1"
+    }
+  ],
+  "summary": "Turns any OpenAI-compatible server into an OFM channel: set the base URL, optionally store an API key, and chat over the chat wire.",
+  "tags": ["chat", "openai", "self-hosted", "compatible"],
+  "publishedAt": "2026-11-07T00:00:00.000Z"
+}

@@ -1,0 +1,419 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-06T18:33:02.387Z",
+  "plugins": [
+    {
+      "schemaVersion": 1,
+      "id": "anthropic-compatible",
+      "version": "1.0.0",
+      "type": "channel",
+      "name": "Anthropic-Compatible",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/anthropic-compatible/main.mjs",
+        "size": 2309,
+        "sha256": "138a77b64a4b5b64cfb38b3acbe1004cdab7b855ac66176791d51313ef35c3ad"
+      },
+      "description": "Point the harness at any Anthropic-compatible /v1/messages server — Anthropic itself, a gateway, or a loopback proxy. Speaks the messages wire.",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [
+          "https://api.anthropic.com",
+          "http://127.0.0.1:8080",
+          "http://127.0.0.1:8000",
+          "http://localhost:8080"
+        ],
+        "secrets": [
+          "apiKey"
+        ],
+        "storage": false
+      },
+      "models": [
+        {
+          "id": "example-claude-a",
+          "name": "Example Claude Model A (edit the manifest models list)",
+          "contextWindow": 200000,
+          "maxOutput": 16384,
+          "vision": false,
+          "reasoning": false,
+          "wire": "messages"
+        },
+        {
+          "id": "example-claude-b",
+          "name": "Example Claude Model B (edit the manifest models list)",
+          "contextWindow": 200000,
+          "maxOutput": 16384,
+          "vision": false,
+          "reasoning": true,
+          "wire": "messages"
+        }
+      ],
+      "config": [
+        {
+          "key": "baseUrl",
+          "type": "text",
+          "label": "Base URL",
+          "description": "The server root — /v1/messages is appended, e.g. https://api.anthropic.com. Its origin must be one this package's permissions declare.",
+          "default": "https://api.anthropic.com"
+        }
+      ],
+      "summary": "Turns any Anthropic-compatible /v1/messages server into an OFM channel: base URL plus API key, speaking the messages wire.",
+      "tags": [
+        "anthropic",
+        "claude",
+        "messages",
+        "self-hosted"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "kilo-free",
+      "version": "1.0.0",
+      "type": "channel",
+      "name": "Kilo Free",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/kilo-free/main.mjs",
+        "size": 4390,
+        "sha256": "954d775191d3407092eeb842e0023c4a8da7295e0efca95c232a06447bdbad13"
+      },
+      "description": "The Kilo gateway's free tier as a keyless channel. Takes the built-in Kilo lane over; no API key required.",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [
+          "https://ai-gateway.kilo.ai",
+          "https://api.kilo.ai"
+        ],
+        "secrets": [],
+        "storage": false
+      },
+      "replaces": "kilo",
+      "models": [
+        {
+          "id": "kilo-auto/free",
+          "name": "Kilo Auto",
+          "contextWindow": 256000,
+          "maxOutput": 32768,
+          "vision": false,
+          "reasoning": false,
+          "wire": "chat"
+        },
+        {
+          "id": "nvidia/nemotron-3.5-super-vl:free",
+          "name": "Nemotron 3.5 Super VL",
+          "contextWindow": 262144,
+          "maxOutput": 32768,
+          "vision": true,
+          "reasoning": false,
+          "wire": "chat"
+        },
+        {
+          "id": "reflection/beam-free",
+          "name": "Beam",
+          "contextWindow": 131072,
+          "maxOutput": 16384,
+          "vision": false,
+          "reasoning": true,
+          "wire": "chat"
+        },
+        {
+          "id": "stealth/glyph-cluster",
+          "name": "Glyph Cluster",
+          "contextWindow": 200000,
+          "maxOutput": 32768,
+          "vision": false,
+          "reasoning": true,
+          "wire": "chat"
+        },
+        {
+          "id": "stealth/crouton-alpha",
+          "name": "Crouton Alpha",
+          "contextWindow": 200000,
+          "maxOutput": 32768,
+          "vision": false,
+          "reasoning": false,
+          "wire": "chat"
+        },
+        {
+          "id": "dots-studio/dots-3-note-preview:free",
+          "name": "Dots 3 Note Preview",
+          "contextWindow": 131072,
+          "maxOutput": 16384,
+          "vision": false,
+          "reasoning": false,
+          "wire": "chat"
+        },
+        {
+          "id": "nvidia/nemotron-3.5-lightning:free",
+          "name": "Nemotron 3.5 Lightning",
+          "contextWindow": 262144,
+          "maxOutput": 16384,
+          "vision": false,
+          "reasoning": false,
+          "wire": "chat"
+        },
+        {
+          "id": "cohere/north-mini-code:free",
+          "name": "North Mini Code",
+          "contextWindow": 256000,
+          "maxOutput": 32768,
+          "vision": false,
+          "reasoning": false,
+          "wire": "chat"
+        },
+        {
+          "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
+          "name": "Nemotron 3 Ultra 550B",
+          "contextWindow": 262144,
+          "maxOutput": 32768,
+          "vision": false,
+          "reasoning": true,
+          "wire": "chat"
+        },
+        {
+          "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+          "name": "Nemotron 3 Nano Omni 30B",
+          "contextWindow": 262144,
+          "maxOutput": 32768,
+          "vision": true,
+          "reasoning": true,
+          "wire": "chat"
+        },
+        {
+          "id": "openrouter/free",
+          "name": "OpenRouter Free",
+          "contextWindow": 131072,
+          "maxOutput": 16384,
+          "vision": false,
+          "reasoning": false,
+          "wire": "chat"
+        }
+      ],
+      "config": [],
+      "summary": "The Kilo gateway's free model tier as a keyless channel — takes the built-in Kilo lane over with no API key required.",
+      "tags": [
+        "free",
+        "gateway",
+        "kilo",
+        "no-key"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "model-filter",
+      "version": "1.0.0",
+      "type": "enhancement",
+      "name": "Model Filter",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/model-filter/main.mjs",
+        "size": 1577,
+        "sha256": "530ae8873b73252599e7e7e76082917aa239f5f1af644d921d7d38820e264479"
+      },
+      "description": "Hides catalog models whose id or name contains one of your comma-separated substrings. Reserved for the lane's model listing; request bodies pass through.",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [],
+        "secrets": [],
+        "storage": false
+      },
+      "hooks": [
+        "onRequest",
+        "onModels"
+      ],
+      "config": [
+        {
+          "key": "hide",
+          "type": "text",
+          "label": "Hide models matching",
+          "description": "Comma-separated substrings, matched case-insensitively against each model's id and name. Empty shows everything.",
+          "default": ""
+        }
+      ],
+      "summary": "Filters catalog rows whose id or name contains one of your comma-separated substrings; outgoing bodies pass through untouched.",
+      "tags": [
+        "catalog",
+        "filter",
+        "models"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "openai-compatible",
+      "version": "1.0.0",
+      "type": "channel",
+      "name": "OpenAI-Compatible",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/openai-compatible/main.mjs",
+        "size": 2374,
+        "sha256": "b194b9ef5c44903db5d4aa1a5739101673ad882bc3a12cfc4b10aac70da7d233"
+      },
+      "description": "Point the harness at any OpenAI-compatible /chat/completions server — OpenAI itself, Ollama, LM Studio, llama.cpp, vLLM, or a loopback proxy.",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [
+          "https://api.openai.com",
+          "http://127.0.0.1:11434",
+          "http://127.0.0.1:1234",
+          "http://127.0.0.1:8080",
+          "http://127.0.0.1:8000",
+          "http://[::1]:11434"
+        ],
+        "secrets": [
+          "apiKey"
+        ],
+        "storage": false
+      },
+      "models": [
+        {
+          "id": "example-model-a",
+          "name": "Example Model A (edit the manifest models list)",
+          "contextWindow": 131072,
+          "maxOutput": 16384,
+          "vision": false,
+          "reasoning": false,
+          "wire": "chat"
+        },
+        {
+          "id": "example-model-b",
+          "name": "Example Model B (edit the manifest models list)",
+          "contextWindow": 131072,
+          "maxOutput": 16384,
+          "vision": false,
+          "reasoning": true,
+          "wire": "chat"
+        }
+      ],
+      "config": [
+        {
+          "key": "baseUrl",
+          "type": "text",
+          "label": "Base URL",
+          "description": "The server root, e.g. https://api.openai.com/v1 or http://127.0.0.1:11434/v1. Its origin must be one this package's permissions declare.",
+          "default": "https://api.openai.com/v1"
+        }
+      ],
+      "summary": "Turns any OpenAI-compatible server into an OFM channel: set the base URL, optionally store an API key, and chat over the chat wire.",
+      "tags": [
+        "chat",
+        "compatible",
+        "openai",
+        "self-hosted"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "param-override",
+      "version": "1.0.0",
+      "type": "enhancement",
+      "name": "Param Override",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/param-override/main.mjs",
+        "size": 1544,
+        "sha256": "3ee28eda4fbc30d517d9b97ebd4c86fc4c8c809f83b2b80170cec07a5c97c86d"
+      },
+      "description": "Caps max_tokens (and max_completion_tokens) on every outgoing body and can drop temperature — for gateways that reject large or hot requests.",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [],
+        "secrets": [],
+        "storage": false
+      },
+      "hooks": [
+        "onRequest"
+      ],
+      "config": [
+        {
+          "key": "maxTokens",
+          "type": "number",
+          "label": "max_tokens cap",
+          "description": "Outgoing max_tokens / max_completion_tokens above this cap are lowered to it. Values the gateway already accepts are left alone.",
+          "default": 8192
+        },
+        {
+          "key": "dropTemperature",
+          "type": "toggle",
+          "label": "Drop temperature",
+          "description": "Remove the temperature field from every outgoing body. For servers that reject sampling options.",
+          "default": false
+        }
+      ],
+      "summary": "Caps outgoing max_tokens and optionally strips temperature from every body — fail-open when disabled.",
+      "tags": [
+        "body",
+        "parameters",
+        "rewrite"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "system-prompt",
+      "version": "1.0.0",
+      "type": "enhancement",
+      "name": "System Prompt",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/system-prompt/main.mjs",
+        "size": 2589,
+        "sha256": "c11337c14c8077fcf23e4bf83af1d94774a88b3f6a95424709404d93d3fb79e8"
+      },
+      "description": "Prepends one system prompt to every outgoing turn — merged into the chat system message, the Claude system string, or the responses instructions field, per wire.",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [],
+        "secrets": [],
+        "storage": false
+      },
+      "hooks": [
+        "onRequest"
+      ],
+      "config": [
+        {
+          "key": "prompt",
+          "type": "text",
+          "label": "System prompt",
+          "description": "Prepended to every outgoing turn. Empty disables the enhancement. Merged with any system prompt the lane itself sets.",
+          "default": ""
+        }
+      ],
+      "summary": "Prepends one configurable system prompt to every outgoing turn, across the chat, messages and responses wires.",
+      "tags": [
+        "prompt",
+        "rewrite",
+        "system"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z"
+    }
+  ]
+}

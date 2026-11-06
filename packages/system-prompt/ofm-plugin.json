@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "system-prompt",
+  "version": "1.0.0",
+  "type": "enhancement",
+  "name": "System Prompt",
+  "description": "Prepends one system prompt to every outgoing turn — merged into the chat system message, the Claude system string, or the responses instructions field, per wire.",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "minHost": "2.8.1",
+  "permissions": {
+    "network": [],
+    "secrets": [],
+    "storage": false
+  },
+  "hooks": ["onRequest"],
+  "config": [
+    {
+      "key": "prompt",
+      "type": "text",
+      "label": "System prompt",
+      "description": "Prepended to every outgoing turn. Empty disables the enhancement. Merged with any system prompt the lane itself sets.",
+      "default": ""
+    }
+  ],
+  "summary": "Prepends one configurable system prompt to every outgoing turn, across the chat, messages and responses wires.",
+  "tags": ["prompt", "system", "rewrite"],
+  "publishedAt": "2026-11-07T00:00:00.000Z"
+}

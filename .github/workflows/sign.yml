@@ -1,0 +1,59 @@
+name: sign
+
+# Rebuild and re-sign the registry on every push to main. Skips gracefully
+# (with a warning) when the OFM_EXTENSIONS_SIGNING_KEY secret is absent —
+# an unsigned registry then fails validate.yml's --check loudly instead.
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sign-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    env:
+      SIGNING_KEY_SET: ${{ secrets.OFM_EXTENSIONS_SIGNING_KEY != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: validate packages
+        run: node scripts/validate.mjs
+
+      - name: rebuild the registry
+        run: node scripts/build-registry.mjs
+
+      - name: write the signing key to a temp file
+        if: env.SIGNING_KEY_SET == 'true'
+        env:
+          OFM_EXTENSIONS_SIGNING_KEY_PEM: ${{ secrets.OFM_EXTENSIONS_SIGNING_KEY }}
+        run: printf '%s' "$OFM_EXTENSIONS_SIGNING_KEY_PEM" > "$RUNNER_TEMP/signing-key.pem"
+
+      - name: sign the registry
+        if: env.SIGNING_KEY_SET == 'true'
+        run: node scripts/sign-registry.mjs --key "$RUNNER_TEMP/signing-key.pem"
+
+      - name: commit the signed registry
+        if: env.SIGNING_KEY_SET == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add registry.json registry.sig
+          if git diff --cached --quiet; then
+            echo "the registry is already in sync; nothing to commit"
+          else
+            git commit -m "chore: rebuild and sign the extension registry"
+            git push
+          fi
+
+      - name: warn when no signing key is configured
+        if: env.SIGNING_KEY_SET != 'true'
+        run: echo "::warning::OFM_EXTENSIONS_SIGNING_KEY is not set — the registry was rebuilt but not signed, and validate.mjs --check will fail until it is"

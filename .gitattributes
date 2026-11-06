@@ -1,0 +1,8 @@
+# Line endings are load-bearing here: registry.json carries the byte `size` and
+# `sha256` of every packages/*/main.mjs, so git must never rewrite those bytes.
+# Without this, a Windows checkout (core.autocrlf=true) turns LF into CRLF and
+# the signed digests — and `node scripts/validate.mjs --check` — stop matching.
+registry.json -text
+registry.sig -text
+packages/*/main.mjs -text
+packages/*/ofm-plugin.json -text

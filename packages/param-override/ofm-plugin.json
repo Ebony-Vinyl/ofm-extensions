@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "param-override",
+  "version": "1.0.0",
+  "type": "enhancement",
+  "name": "Param Override",
+  "description": "Caps max_tokens (and max_completion_tokens) on every outgoing body and can drop temperature — for gateways that reject large or hot requests.",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "minHost": "2.8.1",
+  "permissions": {
+    "network": [],
+    "secrets": [],
+    "storage": false
+  },
+  "hooks": ["onRequest"],
+  "config": [
+    {
+      "key": "maxTokens",
+      "type": "number",
+      "label": "max_tokens cap",
+      "description": "Outgoing max_tokens / max_completion_tokens above this cap are lowered to it. Values the gateway already accepts are left alone.",
+      "default": 8192
+    },
+    {
+      "key": "dropTemperature",
+      "type": "toggle",
+      "label": "Drop temperature",
+      "description": "Remove the temperature field from every outgoing body. For servers that reject sampling options.",
+      "default": false
+    }
+  ],
+  "summary": "Caps outgoing max_tokens and optionally strips temperature from every body — fail-open when disabled.",
+  "tags": ["body", "parameters", "rewrite"],
+  "publishedAt": "2026-11-07T00:00:00.000Z"
+}

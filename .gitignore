@@ -1,0 +1,8 @@
+# Signing keys never live here — the PEM stays outside the repo, the CI copy is a secret.
+*.pem
+*.key
+
+node_modules/
+*.tmp
+.DS_Store
+Thumbs.db

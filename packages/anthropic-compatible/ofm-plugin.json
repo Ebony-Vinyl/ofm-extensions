@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "anthropic-compatible",
+  "version": "1.0.0",
+  "type": "channel",
+  "name": "Anthropic-Compatible",
+  "description": "Point the harness at any Anthropic-compatible /v1/messages server — Anthropic itself, a gateway, or a loopback proxy. Speaks the messages wire.",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "minHost": "2.8.1",
+  "permissions": {
+    "network": [
+      "https://api.anthropic.com",
+      "http://127.0.0.1:8080",
+      "http://127.0.0.1:8000",
+      "http://localhost:8080"
+    ],
+    "secrets": [
+      "apiKey"
+    ],
+    "storage": false
+  },
+  "models": [
+    { "id": "example-claude-a", "name": "Example Claude Model A (edit the manifest models list)", "contextWindow": 200000, "maxOutput": 16384, "vision": false, "reasoning": false, "wire": "messages" },
+    { "id": "example-claude-b", "name": "Example Claude Model B (edit the manifest models list)", "contextWindow": 200000, "maxOutput": 16384, "vision": false, "reasoning": true, "wire": "messages" }
+  ],
+  "config": [
+    {
+      "key": "baseUrl",
+      "type": "text",
+      "label": "Base URL",
+      "description": "The server root — /v1/messages is appended, e.g. https://api.anthropic.com. Its origin must be one this package's permissions declare.",
+      "default": "https://api.anthropic.com"
+    }
+  ],
+  "summary": "Turns any Anthropic-compatible /v1/messages server into an OFM channel: base URL plus API key, speaking the messages wire.",
+  "tags": ["anthropic", "claude", "messages", "self-hosted"],
+  "publishedAt": "2026-11-07T00:00:00.000Z"
+}
