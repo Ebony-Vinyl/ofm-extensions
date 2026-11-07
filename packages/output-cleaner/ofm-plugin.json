@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "output-cleaner",
+  "version": "1.0.0",
+  "type": "enhancement",
+  "name": "工具输出清理",
+  "description": "仅清理工具结果中的 ANSI 控制序列和连续重复进度行，保留命令、报错、普通对话与工具调用结构。",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "homepage": "https://github.com/manjughosa/magpie-compress-core",
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "minHost": "2.8.1",
+  "permissions": {
+    "network": [],
+    "secrets": [],
+    "storage": false
+  },
+  "summary": "仅清理工具结果中的 ANSI 控制序列和连续重复进度行，保留命令、报错、普通对话与工具调用结构。",
+  "tags": [
+    "enhancement",
+    "community"
+  ],
+  "publishedAt": "2026-11-07T00:00:00.000Z",
+  "changelog": [
+    "1.0.0 — 社区扩展适配"
+  ],
+  "hooks": [
+    "onRequest"
+  ]
+}

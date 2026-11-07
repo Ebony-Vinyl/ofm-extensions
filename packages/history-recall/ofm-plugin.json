@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "history-recall",
+  "version": "1.0.0",
+  "type": "enhancement",
+  "name": "本机历史召回",
+  "description": "通过本机社区桥调用 deja-vu，按已授权项目检索本机会话；仅把召回内容作为不可信参考附到本轮用户消息。",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "homepage": "https://github.com/vshulcz/deja-vu",
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "minHost": "2.8.1",
+  "permissions": {
+    "network": [
+      "http://127.0.0.1:19281"
+    ],
+    "secrets": [
+      "bridgeToken"
+    ],
+    "storage": false
+  },
+  "summary": "通过本机社区桥调用 deja-vu，按已授权项目检索本机会话；仅把召回内容作为不可信参考附到本轮用户消息。",
+  "tags": [
+    "enhancement",
+    "community"
+  ],
+  "publishedAt": "2026-11-07T00:00:00.000Z",
+  "changelog": [
+    "1.0.0 — 社区扩展适配"
+  ],
+  "config": [
+    {
+      "key": "project",
+      "type": "text",
+      "label": "项目代号",
+      "description": "社区桥 projects 中明确授权的项目代号；不允许由请求指定任意文件路径。",
+      "default": ""
+    }
+  ],
+  "hooks": [
+    "onRequest"
+  ]
+}
