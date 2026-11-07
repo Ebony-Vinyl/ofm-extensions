@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/Ebony-Vinyl/ofm-extensions/blob/main/SECURITY.md
+    about: A package behaving badly, a scan bypass, a signature concern — report privately per SECURITY.md.
+  - name: Host plugin issues
+    url: https://github.com/Ebony-Vinyl/dsh-our-free-model/issues
+    about: Problems with the host plugin itself (installation, UI, lanes) belong in the plugin repository.

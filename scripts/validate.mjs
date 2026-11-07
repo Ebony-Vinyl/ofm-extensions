@@ -296,20 +296,39 @@ export function stripStringsAndComments(source) {
       continue
     }
     if (char === '"' || char === "'" || char === '`') {
-      const quote = char
-      index += 1
-      while (index < source.length && source[index] !== quote) {
-        if (source[index] === '\\') index += 1
-        index += 1
+      const end = stringEnd(source, index, char)
+      if (end !== -1) {
+        out += char + char
+        index = end + 1
+        continue
       }
-      index += 1
-      out += quote + quote
-      continue
     }
     out += char
     index += 1
   }
   return out
+}
+
+/**
+ * The index of the quote closing the string opened at `start`, or -1 when this
+ * quote does not open one. A single- or double-quoted literal cannot span a raw
+ * newline, so a lone quote is a character inside something else — a regular
+ * expression such as `/['"]/`, for one. Repairing to end-of-file from there
+ * would blank everything after it and retire every tripwire below, silently and
+ * depending only on the author's punctuation. Template literals may span lines,
+ * so they keep scanning for their backtick. Kept identical to the host's copy in
+ * src/extensions.js: CI and the client must refuse the same sources.
+ */
+function stringEnd(source, start, quote) {
+  let index = start + 1
+  while (index < source.length) {
+    const char = source[index]
+    if (char === '\\') { index += 2; continue }
+    if (char === quote) return index
+    if (char === '\n' && quote !== '`') return -1
+    index += 1
+  }
+  return -1
 }
 
 /**

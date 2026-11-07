@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "my-channel",
+  "version": "0.1.0",
+  "type": "channel",
+  "name": "My Channel",
+  "description": "One sentence: what this package turns into an OFM channel, and which wire it speaks.",
+  "author": "Your Name",
+  "license": "MIT",
+  "homepage": "https://github.com/your-name/your-repo",
+  "repository": "https://github.com/your-name/your-repo",
+  "minHost": "2.8.1",
+  "permissions": {
+    "network": ["https://api.example.com"],
+    "secrets": ["apiKey"],
+    "storage": false
+  },
+  "models": [
+    {
+      "id": "example-model",
+      "name": "Example Model",
+      "contextWindow": 131072,
+      "maxOutput": 16384,
+      "vision": false,
+      "reasoning": false,
+      "wire": "chat"
+    }
+  ],
+  "config": [
+    {
+      "key": "baseUrl",
+      "type": "text",
+      "label": "Base URL",
+      "description": "The server root the request is sent to. Its origin must be one this package's permissions declare.",
+      "default": "https://api.example.com"
+    }
+  ],
+  "summary": "One sentence for the marketplace card, up to 300 characters.",
+  "tags": ["example"],
+  "publishedAt": "2026-01-01T00:00:00.000Z"
+}

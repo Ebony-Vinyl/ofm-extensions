@@ -17,18 +17,20 @@ The host plugin's extension runtime consumes this repository's `registry.json`:
 
 ## Current catalog
 
-| package | type | what it does |
-| --- | --- | --- |
-| [`kilo-free`](packages/kilo-free/) | channel | The Kilo gateway's free tier, keyless; takes the built-in Kilo lane over |
-| [`openai-compatible`](packages/openai-compatible/) | channel | Any OpenAI-compatible `/chat/completions` server (OpenAI, Ollama, LM Studio, llama.cpp, vLLM, loopback proxies) |
-| [`anthropic-compatible`](packages/anthropic-compatible/) | channel | Any Anthropic-compatible `/v1/messages` server, over the messages wire |
-| [`param-override`](packages/param-override/) | enhancement | Caps outgoing `max_tokens`, optionally drops `temperature` |
-| [`system-prompt`](packages/system-prompt/) | enhancement | Prepends one system prompt to every turn, with the correct shape per wire |
-| [`model-filter`](packages/model-filter/) | enhancement | Hides catalog models by substring (`onModels` is a reserved hook) |
+| package | type | tags | what it does |
+| --- | --- | --- | --- |
+| [`kilo-free`](packages/kilo-free/) | channel | free · gateway · kilo · no-key | The Kilo gateway's free tier, keyless; takes the built-in Kilo lane over (11 models) |
+| [`openai-compatible`](packages/openai-compatible/) | channel | chat · compatible · openai · self-hosted | Any OpenAI-compatible `/chat/completions` server (OpenAI, Ollama, LM Studio, llama.cpp, vLLM, loopback proxies) |
+| [`anthropic-compatible`](packages/anthropic-compatible/) | channel | anthropic · claude · messages · self-hosted | Any Anthropic-compatible `/v1/messages` server, over the messages wire |
+| [`param-override`](packages/param-override/) | enhancement | body · parameters · rewrite | Caps outgoing `max_tokens`, optionally drops `temperature` |
+| [`system-prompt`](packages/system-prompt/) | enhancement | prompt · rewrite · system | Prepends one system prompt to every turn, with the correct shape per wire |
+| [`model-filter`](packages/model-filter/) | enhancement | catalog · filter · models | Hides catalog models by substring (`onModels` is a reserved hook) |
 
 ## Installing
 
 Open the Extensions page in dsh-our-free-model's settings and install from the marketplace. Channels enable on install; enhancements install disabled and are switched on deliberately. Host version ≥ **2.8.1**.
+
+The marketplace page supports search (name / id / summary / tags), type filters (channel / enhancement), sorting (index order / newest / name), a pending-update count with "update all" on the Installed tab, and `/` focuses the search box.
 
 ## Documentation
 
@@ -40,7 +42,13 @@ Open the Extensions page in dsh-our-free-model's settings and install from the m
 
 ## Contributing
 
-PRs welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). CI runs the full gate (`node scripts/validate.mjs --check`); on merge to `main`, `sign.yml` rebuilds and re-signs the registry automatically.
+PRs welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). The fastest start is the scaffold:
+
+```bash
+node scripts/new-package.mjs my-channel --author "Your Name"
+```
+
+It copies a runnable skeleton from [template/](template/) into `packages/<id>/` and immediately runs the same validation CI runs. CI runs the full gate (`node scripts/validate.mjs --check`); on merge to `main`, `sign.yml` rebuilds and re-signs the registry automatically.
 
 ## License
 

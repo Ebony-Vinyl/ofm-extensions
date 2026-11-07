@@ -17,18 +17,20 @@
 
 ## 当前收录
 
-| 包 | 类型 | 说明 |
-| --- | --- | --- |
-| [`kilo-free`](packages/kilo-free/) | channel | Kilo 网关免费档，免密钥，接管内置 Kilo 车道 |
-| [`openai-compatible`](packages/openai-compatible/) | channel | 任意 OpenAI 兼容 `/chat/completions` 服务（OpenAI、Ollama、LM Studio、llama.cpp、vLLM、回环代理） |
-| [`anthropic-compatible`](packages/anthropic-compatible/) | channel | 任意 Anthropic 兼容 `/v1/messages` 服务，走 messages 线 |
-| [`param-override`](packages/param-override/) | enhancement | 限制出站 `max_tokens`，可选丢弃 `temperature` |
-| [`system-prompt`](packages/system-prompt/) | enhancement | 给每轮请求前置一条系统提示，三种 wire 各有正确形状 |
-| [`model-filter`](packages/model-filter/) | enhancement | 按子串隐藏目录模型（`onModels` 为保留钩子） |
+| 包 | 类型 | 标签 | 说明 |
+| --- | --- | --- | --- |
+| [`kilo-free`](packages/kilo-free/) | channel | free · gateway · kilo · no-key | Kilo 网关免费档，免密钥，接管内置 Kilo 车道（11 个模型） |
+| [`openai-compatible`](packages/openai-compatible/) | channel | chat · compatible · openai · self-hosted | 任意 OpenAI 兼容 `/chat/completions` 服务（OpenAI、Ollama、LM Studio、llama.cpp、vLLM、回环代理） |
+| [`anthropic-compatible`](packages/anthropic-compatible/) | channel | anthropic · claude · messages · self-hosted | 任意 Anthropic 兼容 `/v1/messages` 服务，走 messages 线 |
+| [`param-override`](packages/param-override/) | enhancement | body · parameters · rewrite | 限制出站 `max_tokens`，可选丢弃 `temperature` |
+| [`system-prompt`](packages/system-prompt/) | enhancement | prompt · rewrite · system | 给每轮请求前置一条系统提示，三种 wire 各有正确形状 |
+| [`model-filter`](packages/model-filter/) | enhancement | catalog · filter · models | 按子串隐藏目录模型（`onModels` 为保留钩子） |
 
 ## 安装
 
 在 dsh-our-free-model 的设置页打开 Extensions（扩展）市场页，选择安装即可；渠道安装后即启用，增强默认停用、需手动开启。宿主版本要求 ≥ **2.8.1**。
+
+市场页支持：搜索（名称 / id / 摘要 / 标签）、类型筛选（渠道 / 增强）、排序（索引顺序 / 最新发布 / 名称）、已安装页的待更新计数与「全部更新」；`/` 键直接聚焦搜索框。
 
 ## 文档
 
@@ -40,7 +42,15 @@
 
 ## 参与贡献
 
-欢迎 PR——见 [CONTRIBUTING.md](CONTRIBUTING.md)。CI 会跑完整的校验闸门（`node scripts/validate.mjs --check`）；合并到 main 后 `sign.yml` 自动重建并重签注册表。
+欢迎 PR——见 [CONTRIBUTING.md](CONTRIBUTING.md)。最快的起点是模板脚手架：
+
+```bash
+node scripts/new-package.mjs my-channel --author "Your Name"
+```
+
+它会从 [template/](template/) 复制一份可运行的骨架到 `packages/<id>/` 并立刻跑一遍
+与 CI 相同的校验。CI 会跑完整的闸门（`node scripts/validate.mjs --check`）；合并到
+main 后 `sign.yml` 自动重建并重签注册表。
 
 ## 许可
 

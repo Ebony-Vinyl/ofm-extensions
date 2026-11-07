@@ -1,0 +1,60 @@
+name: Extension submission
+description: Propose a new channel or enhancement package for the OFM extension marketplace (the code itself travels as a pull request).
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The marketplace is a reviewed repository: a package lands as a pull
+        request adding `packages/<id>/` (manifest + `main.mjs`), and CI plus a
+        human review gate the merge. Use this issue to propose an idea, ask
+        whether a package fits, or link your draft PR for discussion. The
+        scaffold makes the starting point fast:
+
+        ```sh
+        node scripts/new-package.mjs <your-id> --author "Your Name"
+        ```
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Package kind
+      options:
+        - channel — an OpenAI / Anthropic / custom-compatible model source
+        - enhancement — rewrites or observes outgoing requests, model lists or usage
+    validations:
+      required: true
+
+  - type: textarea
+    id: pitch
+    attributes:
+      label: What does it do?
+      description: One paragraph — what the package adds for a user of the free-model page, and which upstream it talks to.
+    validations:
+      required: true
+
+  - type: textarea
+    id: origins
+    attributes:
+      label: Network origins and secrets
+      description: The exact hosts the package needs in `permissions.network`, and which secret names it stores. Fewer is better; every origin is reviewed.
+    validations:
+      required: true
+
+  - type: input
+    id: draft-pr
+    attributes:
+      label: Draft PR (optional)
+      description: Link the pull request once the package directory exists.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Submission checklist
+      options:
+        - label: The package follows the manifest schema and passes `node scripts/validate.mjs`
+        - label: `main.mjs` is hand-written and reviewable (no bundles, no minified output)
+        - label: The declared network origins are the minimum the package needs
+        - label: Model metadata is honest (context windows, vision, reasoning flags)
+    validations:
+      required: true

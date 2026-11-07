@@ -12,7 +12,11 @@ packages/<your-id>/
 
 - `<your-id>` is lowercase, `/^[a-z][a-z0-9-]{1,47}$/`, and must equal the manifest's `id`. It is immutable once published — it is the install key on every user's machine.
 - Read [docs/extension-format.md](docs/extension-format.md) for the manifest fields, and the API doc for your type: [channel](docs/channel-api.md) or [enhancement](docs/enhancement-api.md).
-- Copy an existing package as the shape reference — `kilo-free` (channel with a live list), `openai-compatible` (config-driven), `param-override` (enhancement).
+- The fastest start is the scaffold — it copies [template/](template/) into `packages/<id>/` and validates immediately:
+  ```sh
+  node scripts/new-package.mjs <your-id> --author "Your Name"
+  ```
+- Otherwise copy an existing package as the shape reference — `kilo-free` (channel with a live list), `openai-compatible` (config-driven), `param-override` (enhancement).
 
 ## The rules the scanner enforces (so you can write for them)
 
