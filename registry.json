@@ -1,7 +1,85 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-07T09:25:39.628Z",
+  "generatedAt": "2026-11-07T16:13:59.442Z",
   "plugins": [
+    {
+      "schemaVersion": 1,
+      "id": "ai-studio",
+      "version": "1.0.0",
+      "type": "channel",
+      "name": "Google AI Studio",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/ai-studio/main.mjs",
+        "size": 998,
+        "sha256": "cbd7f2aa01474c6d0699951ea82586bcbb4e7a853c5422697c7cd743008d5299"
+      },
+      "description": "通过本机 OFM 社区桥使用 Google AI Studio 的本人账号。浏览器、PoW 和非标准流转换由独立启动的上游插件执行；本扩展不启动程序或读取浏览器凭据。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/BUKOWSKIREAL/magpie-gemini-web",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [
+          "http://127.0.0.1:19281"
+        ],
+        "secrets": [
+          "bridgeToken"
+        ],
+        "storage": false
+      },
+      "config": [],
+      "summary": "通过本机 OFM 社区桥使用 Google AI Studio 的本人账号。浏览器、PoW 和非标准流转换由独立启动的上游插件执行；本扩展不启动程序或读取浏览器凭据。",
+      "tags": [
+        "channel",
+        "community"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — 社区扩展适配"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "amd-cloud",
+      "version": "1.0.0",
+      "type": "channel",
+      "name": "AMD Radeon Cloud",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/amd-cloud/main.mjs",
+        "size": 3105,
+        "sha256": "a7aae72e6bf9a721bfc1e317e54569a0f2006f9f363ecb400c29e581bdea3fe4"
+      },
+      "description": "使用自己的 AMD Radeon Cloud API Key，动态读取可聊天模型，通过标准 Chat Completions 请求生成。额度与账号审核遵循 AMD 服务规则。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/aqiu817/magpie-amd-cloud",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [
+          "https://developer.amd.com.cn"
+        ],
+        "secrets": [
+          "apiKey"
+        ],
+        "storage": false
+      },
+      "config": [],
+      "summary": "AMD Radeon Cloud 模型渠道：自己的 API Key、实时模型目录，过滤音频、OCR 和路由决策条目。",
+      "tags": [
+        "amd",
+        "api-key",
+        "channel",
+        "chat"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — AMD 模型发现与 Chat Completions 渠道"
+      ]
+    },
     {
       "schemaVersion": 1,
       "id": "anthropic-compatible",
@@ -85,6 +163,260 @@
       "publishedAt": "2026-11-07T00:00:00.000Z",
       "changelog": [
         "1.0.0 — initial release: Anthropic-compatible /v1/messages channel with a canonical Claude model shelf"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "context-compression",
+      "version": "1.0.0",
+      "type": "enhancement",
+      "name": "上下文压缩",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/context-compression/main.mjs",
+        "size": 692,
+        "sha256": "537d004fe3ef8ac15527bff83d47d0da05071fa88b65e0f7c09608bde79dbe5b"
+      },
+      "description": "通过本机社区桥调用 compress-core 压缩管线；默认保护系统提示和最近一轮，关闭原文采集、LLM 压缩及无检索存储的折叠策略。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/manjughosa/magpie-compress-core",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [
+          "http://127.0.0.1:19281"
+        ],
+        "secrets": [
+          "bridgeToken"
+        ],
+        "storage": false
+      },
+      "hooks": [
+        "onRequest"
+      ],
+      "config": [],
+      "summary": "通过本机社区桥调用 compress-core 压缩管线；默认保护系统提示和最近一轮，关闭原文采集、LLM 压缩及无检索存储的折叠策略。",
+      "tags": [
+        "community",
+        "enhancement"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — 社区扩展适配"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "context-folding",
+      "version": "1.0.0",
+      "type": "enhancement",
+      "name": "可恢复上下文折叠",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/context-folding/main.mjs",
+        "size": 978,
+        "sha256": "b584ecf54683189c5a4b592b01b32c8dfd562382ef479340661da37b142c818b"
+      },
+      "description": "仅折叠助手显式标记且已归档回读的长片段，延迟一个不同请求周期生效；通过社区桥 CLI 按项目和会话恢复原文。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/LIghtJUNction/magpie-context-folding",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [
+          "http://127.0.0.1:19281"
+        ],
+        "secrets": [
+          "bridgeToken"
+        ],
+        "storage": false
+      },
+      "hooks": [
+        "onRequest"
+      ],
+      "config": [
+        {
+          "key": "project",
+          "type": "text",
+          "label": "项目代号",
+          "description": "社区桥 projects 中明确授权的项目代号；不允许由请求指定任意文件路径。",
+          "default": ""
+        }
+      ],
+      "summary": "仅折叠助手显式标记且已归档回读的长片段，延迟一个不同请求周期生效；通过社区桥 CLI 按项目和会话恢复原文。",
+      "tags": [
+        "community",
+        "enhancement"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — 社区扩展适配"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "deepai-code",
+      "version": "1.0.0",
+      "type": "channel",
+      "name": "DeepAI Code",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/deepai-code/main.mjs",
+        "size": 2920,
+        "sha256": "bb6bfb744d8cdfaf8825c26a76f482d3c14e3d6a3bb9e5c348f0ceabc6788be3"
+      },
+      "description": "直连 DeepAI Code，使用本人的 API Key 与实际设备指纹，动态区分 Chat/Responses 模型；遵循平台免费及付费额度。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/aqiu817/magpie-deepaicode",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [
+          "https://api.deepai.org"
+        ],
+        "secrets": [
+          "apiKey",
+          "machineFingerprint"
+        ],
+        "storage": false
+      },
+      "config": [],
+      "summary": "直连 DeepAI Code，使用本人的 API Key 与实际设备指纹，动态区分 Chat/Responses 模型；遵循平台免费及付费额度。",
+      "tags": [
+        "channel",
+        "community"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — 社区扩展适配"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "deepseek-web",
+      "version": "1.0.0",
+      "type": "channel",
+      "name": "DeepSeek Web",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/deepseek-web/main.mjs",
+        "size": 1001,
+        "sha256": "1dede47fc2933386e6a0088210900b527cf0853eedc22a80264a5dd29235f724"
+      },
+      "description": "通过本机 OFM 社区桥使用 DeepSeek Web 的本人账号。浏览器、PoW 和非标准流转换由独立启动的上游插件执行；本扩展不启动程序或读取浏览器凭据。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/volcanicll/magpie-deepseek-web-auth",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [
+          "http://127.0.0.1:19281"
+        ],
+        "secrets": [
+          "bridgeToken"
+        ],
+        "storage": false
+      },
+      "config": [],
+      "summary": "通过本机 OFM 社区桥使用 DeepSeek Web 的本人账号。浏览器、PoW 和非标准流转换由独立启动的上游插件执行；本扩展不启动程序或读取浏览器凭据。",
+      "tags": [
+        "channel",
+        "community"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — 社区扩展适配"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "gemini-web",
+      "version": "1.0.0",
+      "type": "channel",
+      "name": "Gemini Web",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/gemini-web/main.mjs",
+        "size": 999,
+        "sha256": "72c48c974d16a816ac24c117d07aeb8f2d2c13f0d4c01aa49aa6276196078989"
+      },
+      "description": "通过本机 OFM 社区桥使用 Gemini Web 的本人账号。浏览器、PoW 和非标准流转换由独立启动的上游插件执行；本扩展不启动程序或读取浏览器凭据。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/BUKOWSKIREAL/magpie-gemini-web",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [
+          "http://127.0.0.1:19281"
+        ],
+        "secrets": [
+          "bridgeToken"
+        ],
+        "storage": false
+      },
+      "config": [],
+      "summary": "通过本机 OFM 社区桥使用 Gemini Web 的本人账号。浏览器、PoW 和非标准流转换由独立启动的上游插件执行；本扩展不启动程序或读取浏览器凭据。",
+      "tags": [
+        "channel",
+        "community"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — 社区扩展适配"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "history-recall",
+      "version": "1.0.0",
+      "type": "enhancement",
+      "name": "本机历史召回",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/history-recall/main.mjs",
+        "size": 981,
+        "sha256": "e9965efa2e311283710023a35158c28eaa4bef0476b5bb38ba0e1d88a10a4454"
+      },
+      "description": "通过本机社区桥调用 deja-vu，按已授权项目检索本机会话；仅把召回内容作为不可信参考附到本轮用户消息。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/vshulcz/deja-vu",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [
+          "http://127.0.0.1:19281"
+        ],
+        "secrets": [
+          "bridgeToken"
+        ],
+        "storage": false
+      },
+      "hooks": [
+        "onRequest"
+      ],
+      "config": [
+        {
+          "key": "project",
+          "type": "text",
+          "label": "项目代号",
+          "description": "社区桥 projects 中明确授权的项目代号；不允许由请求指定任意文件路径。",
+          "default": ""
+        }
+      ],
+      "summary": "通过本机社区桥调用 deja-vu，按已授权项目检索本机会话；仅把召回内容作为不可信参考附到本轮用户消息。",
+      "tags": [
+        "community",
+        "enhancement"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — 社区扩展适配"
       ]
     },
     {
@@ -287,6 +619,44 @@
     },
     {
       "schemaVersion": 1,
+      "id": "muse-web",
+      "version": "1.0.0",
+      "type": "channel",
+      "name": "Muse Web",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/muse-web/main.mjs",
+        "size": 997,
+        "sha256": "96c5b87cd79794dfe8b3bc274af39bb9b144eb87064471a0a8af448ee1a97309"
+      },
+      "description": "通过本机 OFM 社区桥使用 Muse Web 的本人账号。浏览器、PoW 和非标准流转换由独立启动的上游插件执行；本扩展不启动程序或读取浏览器凭据。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/JohnWangggg/magpie-muse-web",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [
+          "http://127.0.0.1:19281"
+        ],
+        "secrets": [
+          "bridgeToken"
+        ],
+        "storage": false
+      },
+      "config": [],
+      "summary": "通过本机 OFM 社区桥使用 Muse Web 的本人账号。浏览器、PoW 和非标准流转换由独立启动的上游插件执行；本扩展不启动程序或读取浏览器凭据。",
+      "tags": [
+        "channel",
+        "community"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — 社区扩展适配"
+      ]
+    },
+    {
+      "schemaVersion": 1,
       "id": "openai-compatible",
       "version": "1.0.0",
       "type": "channel",
@@ -379,6 +749,43 @@
       "publishedAt": "2026-11-07T00:00:00.000Z",
       "changelog": [
         "1.0.0 — initial release: OpenAI-compatible /chat/completions channel with a canonical model shelf"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "output-cleaner",
+      "version": "1.0.0",
+      "type": "enhancement",
+      "name": "工具输出清理",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/output-cleaner/main.mjs",
+        "size": 1367,
+        "sha256": "e2d537de6dc5f5a8ea33212b2d0ae63d894aa51ac08cf798852d99a171fc8521"
+      },
+      "description": "仅清理工具结果中的 ANSI 控制序列和连续重复进度行，保留命令、报错、普通对话与工具调用结构。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/manjughosa/magpie-compress-core",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [],
+        "secrets": [],
+        "storage": false
+      },
+      "hooks": [
+        "onRequest"
+      ],
+      "config": [],
+      "summary": "仅清理工具结果中的 ANSI 控制序列和连续重复进度行，保留命令、报错、普通对话与工具调用结构。",
+      "tags": [
+        "community",
+        "enhancement"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — 社区扩展适配"
       ]
     },
     {
@@ -488,6 +895,47 @@
       "publishedAt": "2026-11-07T00:00:00.000Z",
       "changelog": [
         "1.0.0 — initial release: one system prompt prepended across the chat, messages and responses wires"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "web-search",
+      "version": "1.0.0",
+      "type": "enhancement",
+      "name": "多源网页搜索",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/web-search/main.mjs",
+        "size": 1140,
+        "sha256": "d98112b8ff46b2e9340e21a898c7ed13042baa6b0fa94635dc87be4a44ed657e"
+      },
+      "description": "通过本机社区桥运行 magpie-websearch 的搜索通道，仅在本轮用户消息以 [search] 开头时附加结果，普通对话不会发送到搜索服务。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/guotree/magpie-websearch",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.1",
+      "permissions": {
+        "network": [
+          "http://127.0.0.1:19281"
+        ],
+        "secrets": [
+          "bridgeToken"
+        ],
+        "storage": false
+      },
+      "hooks": [
+        "onRequest"
+      ],
+      "config": [],
+      "summary": "通过本机社区桥运行 magpie-websearch 的搜索通道，仅在本轮用户消息以 [search] 开头时附加结果，普通对话不会发送到搜索服务。",
+      "tags": [
+        "community",
+        "enhancement"
+      ],
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — 社区扩展适配"
       ]
     }
   ]

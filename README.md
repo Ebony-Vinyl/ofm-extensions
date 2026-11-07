@@ -25,6 +25,19 @@
 | [`param-override`](packages/param-override/) | enhancement | body · parameters · rewrite | 限制出站 `max_tokens`，可选丢弃 `temperature` |
 | [`system-prompt`](packages/system-prompt/) | enhancement | prompt · rewrite · system | 给每轮请求前置一条系统提示，三种 wire 各有正确形状 |
 | [`model-filter`](packages/model-filter/) | enhancement | catalog · filter · models | 按子串隐藏目录模型（`onModels` 为保留钩子） |
+| [`amd-cloud`](packages/amd-cloud/) | channel | community | AMD Radeon Cloud 动态模型与 API key |
+| [`deepai-code`](packages/deepai-code/) | channel | community | DeepAI Code 动态目录、Chat / Responses 与实际设备标识 |
+| [`deepseek-web`](packages/deepseek-web/) | channel | community | DeepSeek 网页账号，经本机社区桥 |
+| [`gemini-web`](packages/gemini-web/) | channel | community | Gemini 网页后端，经本机社区桥 |
+| [`ai-studio`](packages/ai-studio/) | channel | community | AI Studio 浏览器后端，经本机社区桥 |
+| [`muse-web`](packages/muse-web/) | channel | community | Muse 网页引擎，经本机社区桥 |
+| [`output-cleaner`](packages/output-cleaner/) | enhancement | community | 工具结果 ANSI 与重复进度行清理 |
+| [`context-compression`](packages/context-compression/) | enhancement | community | compress-core 原压缩管线，经本机社区桥 |
+| [`history-recall`](packages/history-recall/) | enhancement | community | 授权项目的 deja-vu 本机历史召回 |
+| [`context-folding`](packages/context-folding/) | enhancement | community | 有持久原文归档及 CLI 检索的可逆折叠 |
+| [`web-search`](packages/web-search/) | enhancement | community | [search] 显式搜索，上游 21 种通道可选 |
+
+本批社区扩展的安装、固定版本来源和验收边界见 [社区适配说明](docs/community-adapters.md)。网页渠道及本地增强需要单独启动社区桥；已通过 OFM 2.8.2 真实内核的隔离集成检查，真实账号生成和 Desktop UI 仍待验收。
 
 ## 安装
 
