@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "deepai-code",
+  "version": "1.0.0",
+  "type": "channel",
+  "name": "DeepAI Code",
+  "description": "直连 DeepAI Code，使用本人的 API Key 与实际设备指纹，动态区分 Chat/Responses 模型；遵循平台免费及付费额度。",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "homepage": "https://github.com/aqiu817/magpie-deepaicode",
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "minHost": "2.8.1",
+  "permissions": {
+    "network": [
+      "https://api.deepai.org"
+    ],
+    "secrets": [
+      "apiKey",
+      "machineFingerprint"
+    ],
+    "storage": false
+  },
+  "summary": "直连 DeepAI Code，使用本人的 API Key 与实际设备指纹，动态区分 Chat/Responses 模型；遵循平台免费及付费额度。",
+  "tags": [
+    "channel",
+    "community"
+  ],
+  "publishedAt": "2026-11-07T00:00:00.000Z",
+  "changelog": [
+    "1.0.0 — 社区扩展适配"
+  ]
+}

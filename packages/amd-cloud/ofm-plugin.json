@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "amd-cloud",
+  "version": "1.0.0",
+  "type": "channel",
+  "name": "AMD Radeon Cloud",
+  "description": "使用自己的 AMD Radeon Cloud API Key，动态读取可聊天模型，通过标准 Chat Completions 请求生成。额度与账号审核遵循 AMD 服务规则。",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "homepage": "https://github.com/aqiu817/magpie-amd-cloud",
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "minHost": "2.8.1",
+  "permissions": {
+    "network": [
+      "https://developer.amd.com.cn"
+    ],
+    "secrets": [
+      "apiKey"
+    ],
+    "storage": false
+  },
+  "summary": "AMD Radeon Cloud 模型渠道：自己的 API Key、实时模型目录，过滤音频、OCR 和路由决策条目。",
+  "tags": [
+    "amd",
+    "channel",
+    "chat",
+    "api-key"
+  ],
+  "publishedAt": "2026-11-07T00:00:00.000Z",
+  "changelog": [
+    "1.0.0 — AMD 模型发现与 Chat Completions 渠道"
+  ]
+}
