@@ -32,6 +32,8 @@ Open the Extensions page in dsh-our-free-model's settings and install from the m
 
 The marketplace page supports search (name / id / summary / tags), type filters (channel / enhancement), sorting (index order / newest / name), a pending-update count with "update all" on the Installed tab, and `/` focuses the search box.
 
+The host refreshes the registry on its own cadence (a TTL cache plus a background timer), so an update published upstream reaches the Installed tab without the user opening the market; when every mirror is unreachable, the host falls back to the signed shelf snapshot shipped with the build, so a first install always has something to see.
+
 ## Documentation
 
 - [Extension format](docs/extension-format.md) — manifest fields, registry metadata, scan rules

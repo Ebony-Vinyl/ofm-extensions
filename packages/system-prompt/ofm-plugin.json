@@ -16,7 +16,9 @@
     "secrets": [],
     "storage": false
   },
-  "hooks": ["onRequest"],
+  "hooks": [
+    "onRequest"
+  ],
   "config": [
     {
       "key": "prompt",
@@ -27,6 +29,13 @@
     }
   ],
   "summary": "Prepends one configurable system prompt to every outgoing turn, across the chat, messages and responses wires.",
-  "tags": ["prompt", "system", "rewrite"],
-  "publishedAt": "2026-11-07T00:00:00.000Z"
+  "tags": [
+    "prompt",
+    "system",
+    "rewrite"
+  ],
+  "publishedAt": "2026-11-07T00:00:00.000Z",
+  "changelog": [
+    "1.0.0 — initial release: one system prompt prepended across the chat, messages and responses wires"
+  ]
 }

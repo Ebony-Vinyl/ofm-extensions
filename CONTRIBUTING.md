@@ -43,7 +43,20 @@ Everything else is policy, enforced by `scripts/validate.mjs`: honest non-empty 
 
 ## Versioning
 
-Semver. Bump `version` on every change to your package; CI verifies the registry matches. `minHost` moves up only when your module genuinely needs a newer host bridge.
+Semver. Bump `version` on every change to your package; CI verifies the registry matches. `minHost` moves up only when your module genuinely needs a newer host bridge. When you bump, prepend one line to `changelog` (≤ 200 chars, newest first) — that is what the marketplace detail view renders as "what's new".
+
+## Duplicates
+
+Duplicates are judged by the **service** a package talks to, not by its package shape: two packages that wrap the same upstream service compete; two packages with a similar shape that talk to different services do not. A duplicate must say, in the PR description, the README and the registry `summary`, how it differs — sign-in method, endpoints, capabilities — or it will not merge.
+
+## Testing before you PR
+
+The host can install an unsigned local directory so you can exercise your package end-to-end without a registry round trip:
+
+1. Build it where the host runs: `node scripts/new-package.mjs <id> --author "You"` (or copy an existing package of the same kind and rename it).
+2. `node scripts/validate.mjs` — the same gate CI runs.
+3. In the host console (desktop 独立端 or dsh 设置页) open the plugin/extension center, enable **developer mode**, and install the directory with an explicit unsigned-package acknowledgement. The card is badged 「未验证」 and runs in the same sandbox as any market install.
+4. Iterate on `main.mjs` and reinstall; every install re-scans and re-verifies.
 
 ## Maintainers: signing
 

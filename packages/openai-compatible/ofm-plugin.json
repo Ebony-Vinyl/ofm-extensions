@@ -26,8 +26,42 @@
     "storage": false
   },
   "models": [
-    { "id": "example-model-a", "name": "Example Model A (edit the manifest models list)", "contextWindow": 131072, "maxOutput": 16384, "vision": false, "reasoning": false, "wire": "chat" },
-    { "id": "example-model-b", "name": "Example Model B (edit the manifest models list)", "contextWindow": 131072, "maxOutput": 16384, "vision": false, "reasoning": true, "wire": "chat" }
+    {
+      "id": "gpt-4o",
+      "name": "GPT-4o",
+      "contextWindow": 128000,
+      "maxOutput": 16384,
+      "vision": true,
+      "reasoning": false,
+      "wire": "chat"
+    },
+    {
+      "id": "gpt-4o-mini",
+      "name": "GPT-4o mini",
+      "contextWindow": 128000,
+      "maxOutput": 16384,
+      "vision": true,
+      "reasoning": false,
+      "wire": "chat"
+    },
+    {
+      "id": "gpt-4.1",
+      "name": "GPT-4.1",
+      "contextWindow": 128000,
+      "maxOutput": 32768,
+      "vision": true,
+      "reasoning": false,
+      "wire": "chat"
+    },
+    {
+      "id": "deepseek-chat",
+      "name": "DeepSeek Chat",
+      "contextWindow": 131072,
+      "maxOutput": 8192,
+      "vision": false,
+      "reasoning": false,
+      "wire": "chat"
+    }
   ],
   "config": [
     {
@@ -39,6 +73,14 @@
     }
   ],
   "summary": "Turns any OpenAI-compatible server into an OFM channel: set the base URL, optionally store an API key, and chat over the chat wire.",
-  "tags": ["chat", "openai", "self-hosted", "compatible"],
-  "publishedAt": "2026-11-07T00:00:00.000Z"
+  "tags": [
+    "chat",
+    "openai",
+    "self-hosted",
+    "compatible"
+  ],
+  "publishedAt": "2026-11-07T00:00:00.000Z",
+  "changelog": [
+    "1.0.0 — initial release: OpenAI-compatible /chat/completions channel with a canonical model shelf"
+  ]
 }

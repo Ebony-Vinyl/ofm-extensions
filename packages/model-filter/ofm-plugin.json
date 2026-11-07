@@ -16,7 +16,10 @@
     "secrets": [],
     "storage": false
   },
-  "hooks": ["onRequest", "onModels"],
+  "hooks": [
+    "onRequest",
+    "onModels"
+  ],
   "config": [
     {
       "key": "hide",
@@ -27,6 +30,13 @@
     }
   ],
   "summary": "Filters catalog rows whose id or name contains one of your comma-separated substrings; outgoing bodies pass through untouched.",
-  "tags": ["catalog", "filter", "models"],
-  "publishedAt": "2026-11-07T00:00:00.000Z"
+  "tags": [
+    "catalog",
+    "filter",
+    "models"
+  ],
+  "publishedAt": "2026-11-07T00:00:00.000Z",
+  "changelog": [
+    "1.0.0 — initial release: catalog filtering by comma-separated substrings"
+  ]
 }

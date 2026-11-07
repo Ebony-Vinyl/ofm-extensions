@@ -140,6 +140,12 @@
     "publishedAt": {
       "type": "string",
       "description": "Registry metadata: ISO date of first publication. Set it when the package first merges; leave it alone afterwards."
+    },
+    "changelog": {
+      "type": "array",
+      "maxItems": 8,
+      "items": { "type": "string", "minLength": 1, "maxLength": 200 },
+      "description": "Registry metadata: newest-first release notes the marketplace detail view renders. One line per entry, most recent first; update the top entry (or prepend a new one) whenever version bumps."
     }
   }
 }

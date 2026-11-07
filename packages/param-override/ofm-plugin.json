@@ -16,7 +16,9 @@
     "secrets": [],
     "storage": false
   },
-  "hooks": ["onRequest"],
+  "hooks": [
+    "onRequest"
+  ],
   "config": [
     {
       "key": "maxTokens",
@@ -34,6 +36,13 @@
     }
   ],
   "summary": "Caps outgoing max_tokens and optionally strips temperature from every body — fail-open when disabled.",
-  "tags": ["body", "parameters", "rewrite"],
-  "publishedAt": "2026-11-07T00:00:00.000Z"
+  "tags": [
+    "body",
+    "parameters",
+    "rewrite"
+  ],
+  "publishedAt": "2026-11-07T00:00:00.000Z",
+  "changelog": [
+    "1.0.0 — initial release: max_tokens cap with optional temperature drop"
+  ]
 }

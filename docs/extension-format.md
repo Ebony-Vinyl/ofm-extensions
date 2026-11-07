@@ -35,7 +35,8 @@ The directory name must equal the manifest's `id`. Anything else in the director
   ],
   "summary": "One-line card text for the marketplace page.",
   "tags": ["free", "gateway"],
-  "publishedAt": "2026-11-07T00:00:00.000Z"
+  "publishedAt": "2026-11-07T00:00:00.000Z",
+  "changelog": ["1.0.0 — initial release"]
 }
 ```
 
@@ -64,11 +65,12 @@ Field by field (the host's normalization rules, which CI enforces strictly — o
 
 ### Registry metadata
 
-Three keys in the same file are not host manifest fields — the host's manifest parser ignores them; the registry builder copies them onto the entry:
+Four keys in the same file are not host manifest fields — the host's manifest parser ignores them; the registry builder copies them onto the entry:
 
 - `summary` (≤ 300 chars) — the marketplace card text.
 - `tags` (≤ 8) — free-form; the build sorts and dedupes them.
 - `publishedAt` — ISO date of first publication. Set it when the package first merges and never change it.
+- `changelog` (optional, ≤ 8 entries of ≤ 200 chars each) — newest-first release notes the marketplace detail view renders. Prepend a line whenever `version` bumps, e.g. `"1.1.0 — added a models refresh; fixed the loopback origin check"`.
 
 ## The module: `main.mjs`
 

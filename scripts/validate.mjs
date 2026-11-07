@@ -416,6 +416,19 @@ export function validatePackage(packageDir) {
   else if (raw.tags.length > 8) problems.push('registry metadata: more than 8 tags')
   const publishedAt = typeof raw.publishedAt === 'string' ? raw.publishedAt : ''
   if (publishedAt !== '' && Number.isNaN(Date.parse(publishedAt))) problems.push('registry metadata: publishedAt is not an ISO date string')
+  // Optional, newest-first release notes the client renders in the detail view.
+  // Reviewable prose, not a dump: eight entries of one line each.
+  let changelog = []
+  if (raw.changelog !== undefined) {
+    if (!Array.isArray(raw.changelog)) problems.push('registry metadata: changelog must be an array of strings')
+    else {
+      changelog = raw.changelog.map(row => typeof row === 'string' ? row.trim() : '')
+      if (changelog.some(row => row === '')) problems.push('registry metadata: changelog entries must be non-empty strings')
+      if (changelog.some(row => row.length > 200)) problems.push('registry metadata: changelog entries exceed 200 characters')
+      if (changelog.length > 8) problems.push('registry metadata: changelog carries more than 8 entries')
+      changelog = changelog.slice(0, 8)
+    }
+  }
   const source = fs.readFileSync(sourcePath, 'utf8')
   const scan = scanSource(source)
   if (!scan.ok) problems.push(...scan.violations)
@@ -430,7 +443,7 @@ export function validatePackage(packageDir) {
     if (coverCheck.problem !== null) problems.push(`cover: ${coverCheck.problem}`)
     else cover = coverCheck
   }
-  return { id, manifest, summary, tags: Array.isArray(raw.tags) ? [...new Set(raw.tags.map(String))].sort() : [], publishedAt, size, sha256, cover, problems }
+  return { id, manifest, summary, tags: Array.isArray(raw.tags) ? [...new Set(raw.tags.map(String))].sort() : [], publishedAt, changelog, size, sha256, cover, problems }
 }
 
 /**
@@ -493,6 +506,7 @@ export function buildRegistryDocument({ packages, repo = REPO, generatedAt }) {
       entry.summary = pkg.summary
       entry.tags = pkg.tags
       entry.publishedAt = pkg.publishedAt
+      if (pkg.changelog !== undefined && pkg.changelog.length > 0) entry.changelog = pkg.changelog
       return entry
     })
   return { schemaVersion: 1, generatedAt, plugins }

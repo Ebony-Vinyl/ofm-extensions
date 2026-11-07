@@ -24,8 +24,33 @@
     "storage": false
   },
   "models": [
-    { "id": "example-claude-a", "name": "Example Claude Model A (edit the manifest models list)", "contextWindow": 200000, "maxOutput": 16384, "vision": false, "reasoning": false, "wire": "messages" },
-    { "id": "example-claude-b", "name": "Example Claude Model B (edit the manifest models list)", "contextWindow": 200000, "maxOutput": 16384, "vision": false, "reasoning": true, "wire": "messages" }
+    {
+      "id": "claude-sonnet-4-5",
+      "name": "Claude Sonnet 4.5",
+      "contextWindow": 200000,
+      "maxOutput": 64000,
+      "vision": true,
+      "reasoning": true,
+      "wire": "messages"
+    },
+    {
+      "id": "claude-opus-4-1",
+      "name": "Claude Opus 4.1",
+      "contextWindow": 200000,
+      "maxOutput": 32000,
+      "vision": true,
+      "reasoning": true,
+      "wire": "messages"
+    },
+    {
+      "id": "claude-haiku-4-5",
+      "name": "Claude Haiku 4.5",
+      "contextWindow": 200000,
+      "maxOutput": 64000,
+      "vision": true,
+      "reasoning": false,
+      "wire": "messages"
+    }
   ],
   "config": [
     {
@@ -37,6 +62,14 @@
     }
   ],
   "summary": "Turns any Anthropic-compatible /v1/messages server into an OFM channel: base URL plus API key, speaking the messages wire.",
-  "tags": ["anthropic", "claude", "messages", "self-hosted"],
-  "publishedAt": "2026-11-07T00:00:00.000Z"
+  "tags": [
+    "anthropic",
+    "claude",
+    "messages",
+    "self-hosted"
+  ],
+  "publishedAt": "2026-11-07T00:00:00.000Z",
+  "changelog": [
+    "1.0.0 — initial release: Anthropic-compatible /v1/messages channel with a canonical Claude model shelf"
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-07T02:40:13.595Z",
+  "generatedAt": "2026-11-07T09:25:39.628Z",
   "plugins": [
     {
       "schemaVersion": 1,
@@ -39,21 +39,30 @@
       },
       "models": [
         {
-          "id": "example-claude-a",
-          "name": "Example Claude Model A (edit the manifest models list)",
+          "id": "claude-sonnet-4-5",
+          "name": "Claude Sonnet 4.5",
           "contextWindow": 200000,
-          "maxOutput": 16384,
-          "vision": false,
-          "reasoning": false,
+          "maxOutput": 64000,
+          "vision": true,
+          "reasoning": true,
           "wire": "messages"
         },
         {
-          "id": "example-claude-b",
-          "name": "Example Claude Model B (edit the manifest models list)",
+          "id": "claude-opus-4-1",
+          "name": "Claude Opus 4.1",
           "contextWindow": 200000,
-          "maxOutput": 16384,
-          "vision": false,
+          "maxOutput": 32000,
+          "vision": true,
           "reasoning": true,
+          "wire": "messages"
+        },
+        {
+          "id": "claude-haiku-4-5",
+          "name": "Claude Haiku 4.5",
+          "contextWindow": 200000,
+          "maxOutput": 64000,
+          "vision": true,
+          "reasoning": false,
           "wire": "messages"
         }
       ],
@@ -73,7 +82,10 @@
         "messages",
         "self-hosted"
       ],
-      "publishedAt": "2026-11-07T00:00:00.000Z"
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — initial release: Anthropic-compatible /v1/messages channel with a canonical Claude model shelf"
+      ]
     },
     {
       "schemaVersion": 1,
@@ -216,7 +228,10 @@
         "kilo",
         "no-key"
       ],
-      "publishedAt": "2026-11-07T00:00:00.000Z"
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — initial release: keyless Kilo gateway free tier, takes over the built-in kilo lane"
+      ]
     },
     {
       "schemaVersion": 1,
@@ -265,7 +280,10 @@
         "filter",
         "models"
       ],
-      "publishedAt": "2026-11-07T00:00:00.000Z"
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — initial release: catalog filtering by comma-separated substrings"
+      ]
     },
     {
       "schemaVersion": 1,
@@ -306,21 +324,39 @@
       },
       "models": [
         {
-          "id": "example-model-a",
-          "name": "Example Model A (edit the manifest models list)",
-          "contextWindow": 131072,
+          "id": "gpt-4o",
+          "name": "GPT-4o",
+          "contextWindow": 128000,
           "maxOutput": 16384,
-          "vision": false,
+          "vision": true,
           "reasoning": false,
           "wire": "chat"
         },
         {
-          "id": "example-model-b",
-          "name": "Example Model B (edit the manifest models list)",
-          "contextWindow": 131072,
+          "id": "gpt-4o-mini",
+          "name": "GPT-4o mini",
+          "contextWindow": 128000,
           "maxOutput": 16384,
+          "vision": true,
+          "reasoning": false,
+          "wire": "chat"
+        },
+        {
+          "id": "gpt-4.1",
+          "name": "GPT-4.1",
+          "contextWindow": 128000,
+          "maxOutput": 32768,
+          "vision": true,
+          "reasoning": false,
+          "wire": "chat"
+        },
+        {
+          "id": "deepseek-chat",
+          "name": "DeepSeek Chat",
+          "contextWindow": 131072,
+          "maxOutput": 8192,
           "vision": false,
-          "reasoning": true,
+          "reasoning": false,
           "wire": "chat"
         }
       ],
@@ -340,7 +376,10 @@
         "openai",
         "self-hosted"
       ],
-      "publishedAt": "2026-11-07T00:00:00.000Z"
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — initial release: OpenAI-compatible /chat/completions channel with a canonical model shelf"
+      ]
     },
     {
       "schemaVersion": 1,
@@ -395,7 +434,10 @@
         "parameters",
         "rewrite"
       ],
-      "publishedAt": "2026-11-07T00:00:00.000Z"
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — initial release: max_tokens cap with optional temperature drop"
+      ]
     },
     {
       "schemaVersion": 1,
@@ -443,7 +485,10 @@
         "rewrite",
         "system"
       ],
-      "publishedAt": "2026-11-07T00:00:00.000Z"
+      "publishedAt": "2026-11-07T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — initial release: one system prompt prepended across the chat, messages and responses wires"
+      ]
     }
   ]
 }
