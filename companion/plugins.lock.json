@@ -1,0 +1,38 @@
+{
+  "deepseek-web": {
+    "repository": "volcanicll/magpie-deepseek-web-auth",
+    "revision": "e360be09485d603f338517af15015324b0ed0d2f",
+    "alias": "ofm-source-deepseek-web",
+    "license": "MIT"
+  },
+  "gemini": {
+    "repository": "BUKOWSKIREAL/magpie-gemini-web",
+    "revision": "c3402bc457b2eb617cc47e09d09ec7bbda3bc02e",
+    "alias": "ofm-source-gemini",
+    "license": "MIT"
+  },
+  "muse-web": {
+    "repository": "JohnWangggg/magpie-muse-web",
+    "revision": "4a78fdbcd546d497a75d7b92630418fd1248dcc3",
+    "alias": "ofm-source-muse-web",
+    "license": "MIT"
+  },
+  "search": {
+    "repository": "guotree/magpie-websearch",
+    "revision": "21116a7ba3328bc023ba30d9923d0b1480deaea3",
+    "alias": "ofm-source-search",
+    "license": "MIT"
+  },
+  "history": {
+    "repository": "vshulcz/deja-vu",
+    "revision": "ae84bb47b367b41672bfbeeab41b5d3618483a00",
+    "alias": "ofm-source-history",
+    "license": "MIT"
+  },
+  "compression": {
+    "repository": "manjughosa/magpie-compress-core",
+    "revision": "630e2d512b1e2e5a063562f664dbf6e2accfb103",
+    "alias": "ofm-source-compression",
+    "license": "MIT; upstream NOTICE and Apache-2.0 engine notices apply"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "muse-web",
+  "version": "1.0.0",
+  "type": "channel",
+  "name": "Muse Web",
+  "description": "通过本机 OFM 社区桥使用 Muse Web 的本人账号。浏览器、PoW 和非标准流转换由独立启动的上游插件执行；本扩展不启动程序或读取浏览器凭据。",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "homepage": "https://github.com/JohnWangggg/magpie-muse-web",
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "minHost": "2.8.1",
+  "permissions": {
+    "network": [
+      "http://127.0.0.1:19281"
+    ],
+    "secrets": [
+      "bridgeToken"
+    ],
+    "storage": false
+  },
+  "summary": "通过本机 OFM 社区桥使用 Muse Web 的本人账号。浏览器、PoW 和非标准流转换由独立启动的上游插件执行；本扩展不启动程序或读取浏览器凭据。",
+  "tags": [
+    "channel",
+    "community"
+  ],
+  "publishedAt": "2026-11-07T00:00:00.000Z",
+  "changelog": [
+    "1.0.0 — 社区扩展适配"
+  ]
+}
