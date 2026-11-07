@@ -35,5 +35,8 @@ node scripts/new-package.mjs my-enhancement --type enhancement
 
 - `summary` 是市场卡片上的一句话（≤300 字符）；`description` 是详情弹层里的长说明。
 - `tags` 会作为可搜索的标签出现在市场筛选里（≤8 个，按字母序存储）。
+- 可选的 `"cover": "cover.svg"`：包目录里的封面图（png/jpg/jpeg/webp/svg，≤192 KB），
+  显示在市场卡片顶部。注册表构建会对它做摘要签名，宿主渲染前先验摘要；SVG 封面
+  必须无脚本、无内联事件处理器。官方六包的封面由 `node scripts/make-covers.mjs` 生成。
 - `main.mjs` 不允许压缩或打包：CI 与宿主都会拒绝超过 3 行的 500+ 字符长行。
 - 渠道包如果声明了 `"replaces": "kilo"`，会接管内置 Kilo 车道——目前只允许这一个值。

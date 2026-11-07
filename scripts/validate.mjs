@@ -40,6 +40,17 @@ export const REPO = process.env.OFM_EXTENSIONS_REPO ?? 'Ebony-Vinyl/ofm-extensio
 
 export const EXTENSION_SOURCE_MAX_BYTES = 256 * 1024
 export const REGISTRY_MAX_BYTES = 512 * 1024
+/** The cover is display-only; a bigger file would outweigh every source. */
+export const COVER_MAX_BYTES = 192 * 1024
+/** Extension of the cover file name → the content type the host serves it as. */
+export const COVER_TYPES = new Map([
+  ['png', 'image/png'],
+  ['jpg', 'image/jpeg'],
+  ['jpeg', 'image/jpeg'],
+  ['webp', 'image/webp'],
+  ['svg', 'image/svg+xml'],
+])
+const COVER_NAME_RE = /^[\w.-]+\.(?:png|jpe?g|webp|svg)$/i
 
 const MANIFEST_ID_RE = /^[a-z][a-z0-9-]{1,47}$/
 const SEMVER_RE = /^\d+\.\d+\.\d+(?:-[\w.]+)?$/
@@ -113,6 +124,16 @@ export function parseManifestStrict(raw) {
   const main = typeof raw.main === 'string' && raw.main.trim() !== '' ? raw.main.trim() : 'main.mjs'
   if (!/^[\w.-]+\.mjs$/.test(main) || main.includes('..')) throw new Error('manifest main must be a relative .mjs file name')
   if (main !== 'main.mjs') throw new Error('the registry ships exactly one file; "main" must be "main.mjs"')
+  // The cover is optional and display-only: a relative file name inside the
+  // package directory, served as an image. The registry build hashes it like
+  // main.mjs, so a tampered cover can never render.
+  let cover
+  if (raw.cover !== undefined) {
+    if (typeof raw.cover !== 'string' || !COVER_NAME_RE.test(raw.cover) || raw.cover.includes('..')) {
+      throw new Error('manifest cover must be a relative image file name (png/jpg/jpeg/webp/svg)')
+    }
+    cover = raw.cover
+  }
   const description = typeof raw.description === 'string' ? raw.description : ''
   if (description.trim() === '') throw new Error('manifest description must not be empty')
   if (description.length > 400) throw new Error('manifest description exceeds 400 characters')
@@ -156,6 +177,7 @@ export function parseManifestStrict(raw) {
     description, author, license, homepage, repository, icon, minHost,
     permissions,
     ...(raw.replaces !== undefined ? { replaces: raw.replaces } : {}),
+    ...(cover !== undefined ? { cover } : {}),
     ...(raw.type === 'enhancement' ? { hooks: raw.hooks } : {}),
     ...(models !== undefined ? { models } : {}),
     config,
@@ -402,7 +424,44 @@ export function validatePackage(packageDir) {
   // bytes) — so `size` is the character count, exactly what install enforces.
   const size = source.length
   const sha256 = crypto.createHash('sha256').update(source).digest('hex')
-  return { id, manifest, summary, tags: Array.isArray(raw.tags) ? [...new Set(raw.tags.map(String))].sort() : [], publishedAt, size, sha256, problems }
+  let cover
+  if (manifest.cover !== undefined) {
+    const coverCheck = validateCoverFile(path.join(packageDir, manifest.cover), manifest.cover)
+    if (coverCheck.problem !== null) problems.push(`cover: ${coverCheck.problem}`)
+    else cover = coverCheck
+  }
+  return { id, manifest, summary, tags: Array.isArray(raw.tags) ? [...new Set(raw.tags.map(String))].sort() : [], publishedAt, size, sha256, cover, problems }
+}
+
+/**
+ * Check one cover file: present, within the byte budget, and actually an image
+ * of its extension — the magic bytes, not the file name, decide. An SVG must
+ * additionally be script-free; it renders inside an <img> (script-free there
+ * by spec) but a reviewer-facing rule is cheaper than a reviewer's vigilance.
+ * Returns the { size, sha256 } the registry build signs, or the problem text.
+ */
+function validateCoverFile(coverPath, name) {
+  if (!fs.existsSync(coverPath)) return { problem: `"${name}" does not exist in the package directory` }
+  const bytes = fs.readFileSync(coverPath)
+  if (bytes.length > COVER_MAX_BYTES) return { problem: `"${name}" is ${bytes.length} bytes; the limit is ${COVER_MAX_BYTES}` }
+  if (bytes.length === 0) return { problem: `"${name}" is empty` }
+  const extension = name.split('.').pop().toLowerCase()
+  let problem = null
+  if (extension === 'png') {
+    if (!bytes.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) problem = '"cover" is named .png but does not carry the PNG magic bytes'
+  } else if (extension === 'jpg' || extension === 'jpeg') {
+    if (bytes[0] !== 0xff || bytes[1] !== 0xd8 || bytes[2] !== 0xff) problem = '"cover" is named .jpg but does not carry the JPEG magic bytes'
+  } else if (extension === 'webp') {
+    if (bytes.subarray(0, 4).toString('latin1') !== 'RIFF' || bytes.subarray(8, 12).toString('latin1') !== 'WEBP') problem = '"cover" is named .webp but does not carry the RIFF/WEBP magic bytes'
+  } else if (extension === 'svg') {
+    const head = bytes.subarray(0, 1024).toString('utf8').replace(/^\uFEFF/, '').trimStart()
+    const afterXml = head.startsWith('<?xml') ? head.slice(head.indexOf('?>') + 2).trimStart() : head
+    if (!afterXml.toLowerCase().startsWith('<svg')) problem = '"cover" is named .svg but does not start with an <svg> element'
+    else if (/<script[\s>]/i.test(bytes.toString('utf8'))) problem = '"cover" is an SVG carrying a <script> element'
+    else if (/on[a-z]+\s*=\s*["']?/i.test(bytes.toString('utf8'))) problem = '"cover" is an SVG carrying inline event handlers'
+  }
+  if (problem !== null) return { problem }
+  return { size: bytes.length, sha256: crypto.createHash('sha256').update(bytes).digest('hex'), problem: null }
 }
 
 // ── the registry document ────────────────────────────────────────────────────
@@ -423,6 +482,13 @@ export function buildRegistryDocument({ packages, repo = REPO, generatedAt }) {
         url: `https://raw.githubusercontent.com/${repo}/main/packages/${pkg.id}/main.mjs`,
         size: pkg.size,
         sha256: pkg.sha256,
+      }
+      if (pkg.cover !== undefined && pkg.manifest.cover !== undefined) {
+        entry.cover = {
+          url: `https://raw.githubusercontent.com/${repo}/main/packages/${pkg.id}/${pkg.manifest.cover}`,
+          size: pkg.cover.size,
+          sha256: pkg.cover.sha256,
+        }
       }
       entry.summary = pkg.summary
       entry.tags = pkg.tags
@@ -497,8 +563,30 @@ function main() {
           if (main.url !== expectedUrl) problems.push(`registry entry "${row.id}" main.url must be ${expectedUrl}`)
           if (main.size !== pkg.size) problems.push(`registry entry "${row.id}" main.size ${main.size} does not match main.mjs (signed size ${pkg.size})`)
           if (main.sha256 !== pkg.sha256) problems.push(`registry entry "${row.id}" main.sha256 does not match main.mjs`)
+          // The cover rides the same promise main.mjs does: the URL points at
+          // this repo's canonical raw path, the bytes hash to the signed value.
+          const cover = row.cover !== null && typeof row.cover === 'object' ? row.cover : null
+          if (pkg.manifest.cover !== undefined) {
+            if (cover === null) {
+              problems.push(`registry entry "${row.id}" must carry a cover object for "${pkg.manifest.cover}"`)
+            } else {
+              const expectedCoverUrl = `https://raw.githubusercontent.com/${REPO}/main/packages/${row.id}/${pkg.manifest.cover}`
+              if (cover.url !== expectedCoverUrl) problems.push(`registry entry "${row.id}" cover.url must be ${expectedCoverUrl}`)
+              if (cover.size !== pkg.cover.size) problems.push(`registry entry "${row.id}" cover.size ${cover.size} does not match ${pkg.manifest.cover} (signed size ${pkg.cover.size})`)
+              if (cover.sha256 !== pkg.cover.sha256) problems.push(`registry entry "${row.id}" cover.sha256 does not match ${pkg.manifest.cover}`)
+            }
+          } else if (cover !== null) {
+            problems.push(`registry entry "${row.id}" carries a cover but packages/${row.id}/ofm-plugin.json declares none`)
+          }
           try {
-            const normalized = parseManifestStrict({ ...row, main: 'main.mjs' })
+            // The row carries main/cover as signed {url,size,sha256} objects;
+            // the manifest parse wants the plain file names, so substitute and
+            // compare manifest fields only — the objects were checked above.
+            const normalized = parseManifestStrict({
+              ...row,
+              main: 'main.mjs',
+              ...(pkg.manifest.cover !== undefined ? { cover: pkg.manifest.cover } : { cover: undefined }),
+            })
             if (JSON.stringify(normalized) !== JSON.stringify(pkg.manifest)) {
               problems.push(`registry entry "${row.id}" manifest fields diverge from packages/${row.id}/ofm-plugin.json`)
             }

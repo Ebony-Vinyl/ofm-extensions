@@ -54,6 +54,7 @@ Field by field (the host's normalization rules, which CI enforces strictly — o
 | `license` | Required SPDX expression (`MIT`, `Apache-2.0`, …). Must match the LICENSE the code actually carries. |
 | `homepage`, `repository` | Optional, https URLs. |
 | `icon` | Optional string, max 200 chars. |
+| `cover` | Optional, display-only: a relative image file name inside the package directory (`cover.png` / `.jpg` / `.jpeg` / `.webp` / `.svg`, ≤ 192 KB). The registry build hashes it like `main.mjs`; the host verifies the digest before rendering it as the marketplace card's banner. An SVG cover must be script-free (no `<script>`, no inline event handlers). |
 | `minHost` | Required semver. `2.8.1` is the current platform floor — extensions rely on the sandbox and the bridge. |
 | `permissions` | Required object: `network` (up to 8 origins — https always, plain http only for loopback hosts `127.0.0.1` / `localhost` / `[::1]`, with the port when one is used), `secrets` (up to 8 key names matching `/^[\w-]{1,64}$/`), `storage` (boolean). |
 | `replaces` | Optional, channels only. The built-in lane this channel takes over. Marketplace policy currently allows only `kilo`. |
@@ -99,7 +100,8 @@ The host runs the same scan before every install that CI runs at review time. A 
 
 ```json
 "main": { "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/<id>/main.mjs", "size": 1234, "sha256": "…" },
+"cover": { "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/<id>/cover.svg", "size": 838, "sha256": "…" },
 "summary": "…", "tags": ["…"], "publishedAt": "…"
 ```
 
-`size` (the source's character count — what the host compares after decoding) and `sha256` are computed from the actual `main.mjs`; the host refuses a download that mismatches either. The registry is signed as a whole — see [security.md](security.md).
+`size` (the source's character count — what the host compares after decoding) and `sha256` are computed from the actual `main.mjs`; the host refuses a download that mismatches either. The `cover` object is present only when the manifest declares one and carries the same promise for the image bytes — the host serves them only after the digest verifies, and a cover that cannot be fetched simply renders no banner. The registry is signed as a whole — see [security.md](security.md).

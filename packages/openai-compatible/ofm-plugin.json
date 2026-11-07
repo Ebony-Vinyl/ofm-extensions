@@ -9,6 +9,7 @@
   "license": "MIT",
   "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
   "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "cover": "cover.svg",
   "minHost": "2.8.1",
   "permissions": {
     "network": [

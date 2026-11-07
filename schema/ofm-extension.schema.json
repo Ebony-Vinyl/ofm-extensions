@@ -32,6 +32,11 @@
     "homepage": { "type": "string", "pattern": "^https://" },
     "repository": { "type": "string", "pattern": "^https://" },
     "icon": { "type": "string", "maxLength": 200 },
+    "cover": {
+      "type": "string",
+      "pattern": "^[\\w.-]+\\.(?:png|jpe?g|webp|svg)$",
+      "description": "Optional display-only cover image inside the package directory (png/jpg/jpeg/webp/svg, ≤192 KB). The registry build hashes it like main.mjs; the host verifies the digest before rendering. SVG covers must be script-free."
+    },
     "minHost": {
       "type": "string",
       "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[\\w.]+)?$",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-06T18:33:02.387Z",
+  "generatedAt": "2026-11-07T02:40:13.595Z",
   "plugins": [
     {
       "schemaVersion": 1,
@@ -31,6 +31,11 @@
           "apiKey"
         ],
         "storage": false
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/anthropic-compatible/cover.svg",
+        "size": 838,
+        "sha256": "7f3943f8aab12d08798c95db2d5a5b49c81e8d79340dc8e66e6e99167542227a"
       },
       "models": [
         {
@@ -97,6 +102,11 @@
         "storage": false
       },
       "replaces": "kilo",
+      "cover": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/kilo-free/cover.svg",
+        "size": 838,
+        "sha256": "917288a7a7edf17fab751fe57bb3aee63178dd498c5506e68fdc97b8f5c62181"
+      },
       "models": [
         {
           "id": "kilo-auto/free",
@@ -231,6 +241,11 @@
         "secrets": [],
         "storage": false
       },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/model-filter/cover.svg",
+        "size": 838,
+        "sha256": "eda4a836f67fb8ce4e38e01fba4965df14455328c491b3002a7184555ad2b118"
+      },
       "hooks": [
         "onRequest",
         "onModels"
@@ -283,6 +298,11 @@
           "apiKey"
         ],
         "storage": false
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/openai-compatible/cover.svg",
+        "size": 838,
+        "sha256": "3aefa41e87f9f946956ac3a0173f3d76f4171bb499f1ff23a4391d2603c9c6d2"
       },
       "models": [
         {
@@ -345,6 +365,11 @@
         "secrets": [],
         "storage": false
       },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/param-override/cover.svg",
+        "size": 838,
+        "sha256": "441c4cc182acfa8fbbc4b5870a62dff6cd7cbd70e2a8ed753a9e8ae88f05f9ec"
+      },
       "hooks": [
         "onRequest"
       ],
@@ -394,6 +419,11 @@
         "network": [],
         "secrets": [],
         "storage": false
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/system-prompt/cover.svg",
+        "size": 838,
+        "sha256": "65ab2c703a0c5ab203464a7e77261af6cbef4412086425fd9bf11f54773b22e1"
       },
       "hooks": [
         "onRequest"
