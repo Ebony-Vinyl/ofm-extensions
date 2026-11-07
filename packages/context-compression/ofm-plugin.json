@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "context-compression",
+  "version": "1.0.0",
+  "type": "enhancement",
+  "name": "上下文压缩",
+  "description": "通过本机社区桥调用 compress-core 压缩管线；默认保护系统提示和最近一轮，关闭原文采集、LLM 压缩及无检索存储的折叠策略。",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "homepage": "https://github.com/manjughosa/magpie-compress-core",
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "minHost": "2.8.1",
+  "permissions": {
+    "network": [
+      "http://127.0.0.1:19281"
+    ],
+    "secrets": [
+      "bridgeToken"
+    ],
+    "storage": false
+  },
+  "summary": "通过本机社区桥调用 compress-core 压缩管线；默认保护系统提示和最近一轮，关闭原文采集、LLM 压缩及无检索存储的折叠策略。",
+  "tags": [
+    "enhancement",
+    "community"
+  ],
+  "publishedAt": "2026-11-07T00:00:00.000Z",
+  "changelog": [
+    "1.0.0 — 社区扩展适配"
+  ],
+  "hooks": [
+    "onRequest"
+  ]
+}

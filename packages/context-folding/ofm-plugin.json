@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "context-folding",
+  "version": "1.0.0",
+  "type": "enhancement",
+  "name": "可恢复上下文折叠",
+  "description": "仅折叠助手显式标记且已归档回读的长片段，延迟一个不同请求周期生效；通过社区桥 CLI 按项目和会话恢复原文。",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "homepage": "https://github.com/LIghtJUNction/magpie-context-folding",
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "minHost": "2.8.1",
+  "permissions": {
+    "network": [
+      "http://127.0.0.1:19281"
+    ],
+    "secrets": [
+      "bridgeToken"
+    ],
+    "storage": false
+  },
+  "summary": "仅折叠助手显式标记且已归档回读的长片段，延迟一个不同请求周期生效；通过社区桥 CLI 按项目和会话恢复原文。",
+  "tags": [
+    "enhancement",
+    "community"
+  ],
+  "publishedAt": "2026-11-07T00:00:00.000Z",
+  "changelog": [
+    "1.0.0 — 社区扩展适配"
+  ],
+  "config": [
+    {
+      "key": "project",
+      "type": "text",
+      "label": "项目代号",
+      "description": "社区桥 projects 中明确授权的项目代号；不允许由请求指定任意文件路径。",
+      "default": ""
+    }
+  ],
+  "hooks": [
+    "onRequest"
+  ]
+}
