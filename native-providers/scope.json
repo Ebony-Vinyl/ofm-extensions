@@ -1,0 +1,569 @@
+{
+  "registryBlob": "02ba0d371c7a44b924604df6837ec5de606f8124",
+  "sourceRevision": "7d84184c327c0564cf8aa78e8a04b595348cab8d",
+  "routing": "OFM -> vendor; no Magpie process, gateway or runtime",
+  "excludedNumbers": [
+    19,
+    30,
+    35
+  ],
+  "channels": [
+    {
+      "number": 1,
+      "name": "Agnes AI",
+      "sourcePackage": "@magpie-community/opencode-agnes-auth",
+      "providers": [
+        "agnes"
+      ],
+      "status": "partial-native-api",
+      "extension": "native-agnes",
+      "reason": "本人 API Key 直连；平台浏览器登录、发钥与续期未迁移。",
+      "sourceFiles": [
+        "packages/agnes/index.mjs"
+      ]
+    },
+    {
+      "number": 2,
+      "name": "AtomCode",
+      "sourcePackage": "@magpie-community/opencode-atomcode-auth",
+      "providers": [
+        "atomcode"
+      ],
+      "status": "blocked-client-identity",
+      "reason": "已审 index.mjs：要求 atomcode-signing-v1 与 AtomCode User-Agent；不复刻 IDE 身份或签名。",
+      "sourceFiles": [
+        "packages/atomcode/index.mjs"
+      ]
+    },
+    {
+      "number": 3,
+      "name": "GitHub Copilot",
+      "sourcePackage": "@magpie-community/opencode-copilot-auth",
+      "providers": [
+        "github-copilot"
+      ],
+      "status": "partial-native-authorized-device-oauth",
+      "extension": "native-copilot",
+      "reason": "设备码/续期/三协议仅合成验证；必须填写本人获授权 OAuth App clientId，移除借用的官方 App ID 与 VSCode 身份头；普通 App 不保证获 Copilot API 权限，Enterprise 未迁移。",
+      "sourceFiles": [
+        "packages/copilot/index.mjs"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "JoyCode",
+      "sourcePackage": "@magpie-community/opencode-joycode-auth",
+      "providers": [
+        "joycode"
+      ],
+      "status": "blocked-client-identity",
+      "reason": "已审 index.mjs：JoyCode IDE appid、HMAC 网关签名与客户端凭据；不复刻专有客户端身份。",
+      "sourceFiles": [
+        "packages/joycode/index.mjs"
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Kimi Work",
+      "sourcePackage": "@magpie-community/opencode-kimi-work-auth",
+      "providers": [
+        "kimi-work"
+      ],
+      "status": "blocked-client-identity",
+      "reason": "已审 index.mjs：Kimi Work 专用 coding 网关、桌面设备头和会员登录链；没有核实可供 OFM 正式独立使用的 key 路径。",
+      "sourceFiles": [
+        "packages/kimi-work/index.mjs"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "OpenCode Zen Free",
+      "sourcePackage": "@magpie-community/opencode-zen-free-auth",
+      "providers": [
+        "opencode-zen-free"
+      ],
+      "status": "blocked-free-access-restriction",
+      "reason": "已审 provider.mjs：免费端要求 OpenCode UA、核心工具和项目身份；原实现明确规避 FreeTierError/FreeUsageLimitError，本轮禁止迁移。",
+      "sourceFiles": [
+        "packages/zen-free/provider.mjs"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "ZCode",
+      "sourcePackage": "@magpie-community/opencode-zcode-auth",
+      "providers": [
+        "zcode"
+      ],
+      "status": "pending-native-port",
+      "reason": "已审 index.mjs：ZCode 动态渠道配置、设备标识、网页登录与发钥；未完成独立授权及动态地址固定 origin 审计，不能等同于标准 z.ai key。",
+      "sourceFiles": [
+        "packages/zcode/index.mjs"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Qoder",
+      "sourcePackage": "@magpie-community/opencode-qoder-auth",
+      "providers": [
+        "qoder",
+        "qoder-cn",
+        "qwenwork",
+        "qwenwork-enterprise"
+      ],
+      "status": "pending-native-port",
+      "reason": "已审 index.mjs：多区域/企业域名、专有模型协议与 Cosy 客户端认证；需单独授权和协议适配，不开放任意 origin。",
+      "sourceFiles": [
+        "packages/qoder/index.mjs"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Devin",
+      "sourcePackage": "@magpie-community/opencode-devin-auth",
+      "providers": [
+        "devin"
+      ],
+      "status": "pending-native-protocol",
+      "reason": "已审 index.mjs：Codeium/Devin protobuf 与 Connect 流，需要专有请求和流转码；不是普通 Chat/Responses。",
+      "sourceFiles": [
+        "packages/devin/index.mjs"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Zed",
+      "sourcePackage": "@magpie-community/opencode-zed-auth",
+      "providers": [
+        "zed"
+      ],
+      "status": "pending-native-protocol",
+      "reason": "已审 index.mjs：Zed userId/access 授权、私有模型网关与协议转码；未核实独立客户端授权，不复制 Zed UA。",
+      "sourceFiles": [
+        "packages/zed/index.mjs"
+      ]
+    },
+    {
+      "number": 11,
+      "name": "Factory",
+      "sourcePackage": "@magpie-community/opencode-factory-auth",
+      "providers": [
+        "factory"
+      ],
+      "status": "blocked-client-identity",
+      "reason": "已审 index.mjs：Factory WorkOS 和 factory-cli 身份头，带客户端版本/模式处理；本轮不复制官方客户端身份。",
+      "sourceFiles": [
+        "packages/factory/index.mjs"
+      ]
+    },
+    {
+      "number": 12,
+      "name": "Grok",
+      "sourcePackage": "@magpie-community/opencode-grok-auth",
+      "providers": [
+        "grok"
+      ],
+      "status": "pending-native-authorization",
+      "reason": "已审 index.mjs：Grok CLI 专属代理、OIDC audience/client 与本机登录；需确认独立客户端授权，不能替换为另一产品 xAI API key 后声称迁移完成。",
+      "sourceFiles": [
+        "packages/grok/index.mjs"
+      ]
+    },
+    {
+      "number": 13,
+      "name": "Command Code",
+      "sourcePackage": "@magpie-community/opencode-commandcode-auth",
+      "providers": [
+        "commandcode-plan"
+      ],
+      "status": "partial-native-api",
+      "reason": "本人非 Go 计划正式 Provider API key，/alpha/whoami 验钥（目录可能公开），动态模型与 Chat/Responses/Messages；Go 的 /alpha/generate、SystemOne、浏览器及 CLI 登录不支持。",
+      "extension": "native-commandcode",
+      "sourceFiles": [
+        "packages/commandcode/index.mjs"
+      ]
+    },
+    {
+      "number": 14,
+      "name": "Xiaomi MiMo",
+      "sourcePackage": "@magpie-community/opencode-mimo-auth",
+      "providers": [
+        "mimo-app"
+      ],
+      "status": "pending-native-authorization",
+      "reason": "已审 index.mjs：MiMo App 区域会话与 TokenPlan 发钥路径；App scope 与公共 API 不等同，登录未迁移。",
+      "sourceFiles": [
+        "packages/mimo/index.mjs"
+      ]
+    },
+    {
+      "number": 15,
+      "name": "Cursor",
+      "sourcePackage": "@magpie-community/opencode-cursor-auth",
+      "providers": [
+        "cursor"
+      ],
+      "status": "pending-native-protocol",
+      "reason": "已审 index.mjs：Cursor AgentService/Run 双向 Connect、HTTP2/RunSSE、blob 与工具回传；不是宿主三种标准 wire。",
+      "sourceFiles": [
+        "packages/cursor/index.mjs"
+      ]
+    },
+    {
+      "number": 16,
+      "name": "Kiro",
+      "sourcePackage": "@magpie-community/opencode-kiro-auth",
+      "providers": [
+        "kiro"
+      ],
+      "status": "pending-native-protocol",
+      "reason": "已审 index.mjs：Kiro 专有 generateAssistantResponse 与 AWS eventstream 转码；不复用 CLI 凭据或启动 CLI。",
+      "sourceFiles": [
+        "packages/kiro/index.mjs"
+      ]
+    },
+    {
+      "number": 17,
+      "name": "MiniMax Code",
+      "sourcePackage": "@magpie-community/opencode-minimax-auth",
+      "providers": [
+        "minimax-code",
+        "minimax-code-global"
+      ],
+      "status": "blocked-client-identity",
+      "reason": "已审 index.mjs：MiniMax Code 专属设备 OAuth 与内置 request signing secret、客户端头；不复刻签名/身份。",
+      "sourceFiles": [
+        "packages/minimax/index.mjs"
+      ]
+    },
+    {
+      "number": 18,
+      "name": "Warp",
+      "sourcePackage": "@magpie-community/opencode-warp-auth",
+      "providers": [
+        "warp"
+      ],
+      "status": "pending-native-protocol",
+      "reason": "已审 index.mjs：Warp protobuf Request/ResponseEvent 与 HTTP2，需要流转码和独立授权；不读取桌面凭据。",
+      "sourceFiles": [
+        "packages/warp/index.mjs"
+      ]
+    },
+    {
+      "number": 20,
+      "name": "Cline",
+      "sourcePackage": "@magpie-community/opencode-cline-auth",
+      "providers": [
+        "cline"
+      ],
+      "status": "partial-native-api",
+      "reason": "正式本人 API Key 验证与云模型 Chat；只列付费/计划模型，阻止 cline-free 和 stealth 路由；不冒用 CLI 身份，不迁移 WorkOS 登录。",
+      "extension": "native-cline",
+      "sourceFiles": [
+        "packages/cline/index.mjs"
+      ]
+    },
+    {
+      "number": 21,
+      "name": "Trae",
+      "sourcePackage": "@magpie-community/opencode-trae-auth",
+      "providers": [
+        "trae-cn",
+        "trae-global"
+      ],
+      "status": "pending-native-protocol",
+      "reason": "已审 index.mjs：Trae 区域 OAuth、私有 llm_utils_chat SSE 与签名/客户端元数据；标准 wire 无法直接承载。",
+      "sourceFiles": [
+        "packages/trae/index.mjs"
+      ]
+    },
+    {
+      "number": 22,
+      "name": "Open Design",
+      "sourcePackage": "@magpie-community/opencode-opendesign-auth",
+      "providers": [
+        "opendesign"
+      ],
+      "status": "partial-native-api",
+      "reason": "本人 runtime key；账号实时模型目录及 Chat/Responses/Messages；拒绝 control key；不冒用 Vela CLI 进行设备授权，控制面与额度未迁移。",
+      "extension": "native-opendesign",
+      "sourceFiles": [
+        "packages/opendesign/index.mjs"
+      ]
+    },
+    {
+      "number": 23,
+      "name": "CatPaw",
+      "sourcePackage": "@magpie-community/opencode-catpaw-auth",
+      "providers": [
+        "catpaw"
+      ],
+      "status": "pending-native-protocol",
+      "reason": "已审 index.mjs：CatPaw round→event→turn 累积 SSE 与 CatDesk scene；需完整转码与正式授权，不落标准 Chat 占位。",
+      "sourceFiles": [
+        "packages/catpaw/index.mjs"
+      ]
+    },
+    {
+      "number": 24,
+      "name": "Loomy",
+      "sourcePackage": "@magpie-community/opencode-loomy-auth",
+      "providers": [
+        "loomy"
+      ],
+      "status": "pending-native-authorization",
+      "reason": "已审 index.mjs：Loomy session、CAccount 签名和客户端身份；未核实正式本人 API key 路径，不复制内置账户签名密钥。",
+      "sourceFiles": [
+        "packages/loomy/index.mjs"
+      ]
+    },
+    {
+      "number": 25,
+      "name": "Nous Portal (OAuth)",
+      "sourcePackage": "@magpie-community/opencode-nous-auth",
+      "providers": [
+        "nous-portal"
+      ],
+      "status": "pending-native-authorization",
+      "reason": "已审 index.mjs、oauth.mjs、README.md，并只读核对官方 Hermes 固定来源：Nous Portal 是 inference JWT/device OAuth；来源明确 hermes-cli 第三方授权未经厂商确认，未找到正式长期 API key 的可靠证据。不冒用 public clientId 或把短期 JWT 包装成 API key。",
+      "sourceFiles": [
+        "packages/nous/index.mjs",
+        "packages/nous/oauth.mjs",
+        "packages/nous/README.md"
+      ]
+    },
+    {
+      "number": 26,
+      "name": "商汤小浣熊",
+      "sourcePackage": "@magpie-community/opencode-raccoon-auth",
+      "providers": [
+        "raccoon"
+      ],
+      "status": "pending-native-authorization",
+      "reason": "已审 index.mjs：Raccoon 网页/桌面会话、office-raccoon 授权回调与 refresh；需正式独立授权及登录桥契约，不读取桌面 auth。",
+      "sourceFiles": [
+        "packages/raccoon/index.mjs"
+      ]
+    },
+    {
+      "number": 27,
+      "name": "SenseNova",
+      "sourcePackage": "@magpie-community/opencode-sensenova-auth",
+      "providers": [
+        "sensenova-token-plan"
+      ],
+      "status": "partial-native-api",
+      "reason": "正式本人 Token Plan API key 与 Chat/实时目录；过滤 image-only 和来源注明的非计划条目；不复制浏览器指纹，不迁移控制台密码登录/自动发钥。",
+      "extension": "native-sensenova",
+      "sourceFiles": [
+        "packages/sensenova/index.mjs"
+      ]
+    },
+    {
+      "number": 28,
+      "name": "书生·端砚",
+      "sourcePackage": "@magpie-community/opencode-inkstone-auth",
+      "providers": [
+        "intern-inkstone"
+      ],
+      "status": "partial-native-api",
+      "reason": "本人 TOKENPLAN_API_KEY、账号实时目录和 Chat；不迁移网页登录、自动发钥、墨点、图片预检与特有错误翻译。",
+      "extension": "native-inkstone",
+      "sourceFiles": [
+        "packages/inkstone/index.mjs"
+      ]
+    },
+    {
+      "number": 29,
+      "name": "AutoClaw",
+      "sourcePackage": "@magpie-community/opencode-autoclaw-auth",
+      "providers": [
+        "autoclaw",
+        "autoclaw-cn"
+      ],
+      "status": "blocked-client-identity",
+      "reason": "已审 index.mjs：AutoClaw 国内/海外 token 会话与明确要求的官方桌面/SDK 指纹；不复刻身份，未将公共 z.ai key 混作本渠道。",
+      "sourceFiles": [
+        "packages/autoclaw/index.mjs"
+      ]
+    },
+    {
+      "number": 31,
+      "name": "GCP AI",
+      "sourcePackage": "@magpie-community/opencode-gcp-ai-auth",
+      "providers": [
+        "gcp-ai"
+      ],
+      "status": "pending-native-protocol",
+      "reason": "已审 index.mjs：Google project/location ADC/OAuth 与 Vertex generateContent 流；需 Gemini/Vertex 原生协议，不假装 OpenAI 直连；不执行 gcloud。",
+      "sourceFiles": [
+        "packages/gcp-ai/index.mjs"
+      ]
+    },
+    {
+      "number": 32,
+      "name": "Cloudflare Workers AI",
+      "sourcePackage": "@magpie-community/opencode-cloudflare-workers-ai-auth",
+      "providers": [
+        "cloudflare-workers-ai"
+      ],
+      "status": "native-code-awaiting-live-validation",
+      "extension": "native-cloudflare",
+      "reason": "正式本人 Token + Account ID、分页 Text Generation 模型目录、Workers AI Chat；只有离线合成夹具，无真实账号验收。",
+      "sourceFiles": [
+        "packages/cloudflare-workers-ai/src/index.mjs"
+      ]
+    },
+    {
+      "number": 33,
+      "name": "River",
+      "sourcePackage": "@magpie-community/opencode-river-auth",
+      "providers": [
+        "river"
+      ],
+      "status": "native-code-awaiting-live-validation",
+      "extension": "native-river",
+      "reason": "本人 API Key、动态目录、Chat/Responses；只离线合成验证，不支持账号池/用量读取。"
+    },
+    {
+      "number": 34,
+      "name": "SAP AI Core",
+      "sourcePackage": "@magpie-community/opencode-sap-aicore-auth",
+      "providers": [
+        "sap-aicore"
+      ],
+      "status": "pending-native-protocol",
+      "reason": "已审 package.json、src/index.js 等：SAP BTP OAuth、资源组、部署 discovery 与动态租户 origin；需要独立固定域审计和生命周期实现。",
+      "sourceFiles": [
+        "packages/sap-aicore/src/index.js"
+      ]
+    },
+    {
+      "number": 36,
+      "name": "AWS Bedrock SSO",
+      "sourcePackage": "magpie-aws-bedrock-sso",
+      "providers": [
+        "bedrock-sso"
+      ],
+      "status": "pending-source-unavailable",
+      "reason": "外部 magpie-aws-bedrock-sso 源码不在快照；不能杜撰 STS/SSO/SigV4 路径或落占位包。"
+    },
+    {
+      "number": 37,
+      "name": "Providers Hub",
+      "sourcePackage": "magpie-providers-hub",
+      "providers": [
+        "hub-astudio",
+        "hub-accio",
+        "hub-lobsterai",
+        "hub-magicrew",
+        "hub-magicrew-intl",
+        "hub-autoclaw",
+        "hub-autoclaw-cn",
+        "hub-loomy",
+        "hub-monkeycode",
+        "hub-monkeycode-intl",
+        "hub-qiniu"
+      ],
+      "status": "pending-source-unavailable",
+      "reason": "外部 magpie-providers-hub 源码不在快照；11子渠道不能依据 registry 摘要算迁移完成。"
+    },
+    {
+      "number": 38,
+      "name": "AStudio",
+      "sourcePackage": "@magpie-community/opencode-astudio-auth",
+      "providers": [
+        "astudio"
+      ],
+      "status": "partial-native-api",
+      "reason": "本人已有 modelBearerToken、账号模型目录与 Responses；不读桌面/注册表，不复制 clientType 登录身份；浏览器、发钥、续期与积分未迁移。",
+      "extension": "native-astudio"
+    },
+    {
+      "number": 39,
+      "name": "Agnes Code",
+      "sourcePackage": "@magpie-community/opencode-agnes-code-auth",
+      "providers": [
+        "agnes-code"
+      ],
+      "status": "partial-native-api",
+      "reason": "本人已有 accessToken、实时目录与 Chat；不解密桌面 safeStorage，不提供浏览器登录、自动续期或积分。",
+      "extension": "native-agnes-code",
+      "sourceFiles": [
+        "packages/agnes-code/index.mjs"
+      ]
+    },
+    {
+      "number": 40,
+      "name": "Tabbit",
+      "sourcePackage": "@magpie-community/opencode-tabbit-auth",
+      "providers": [
+        "tabbit"
+      ],
+      "status": "pending-native-protocol",
+      "reason": "已审 index.mjs：Tabbit cookie 会话、room→runs→join SSE、服务端会话历史；需完整有状态转码，不落无效标准 Chat 包。",
+      "sourceFiles": [
+        "packages/tabbit/index.mjs"
+      ]
+    },
+    {
+      "number": 41,
+      "name": "Codar (科搭)",
+      "sourcePackage": "magpie-plugin-codar",
+      "providers": [
+        "codar"
+      ],
+      "status": "pending-source-unavailable",
+      "reason": "外部 magpie-plugin-codar 源码不在快照；保持 pending，不从 registry 摘要猜测端点。"
+    },
+    {
+      "number": 42,
+      "name": "MClaw",
+      "sourcePackage": "@magpie-community/opencode-mclaw-auth",
+      "providers": [
+        "mclaw"
+      ],
+      "status": "blocked-client-identity",
+      "reason": "已审 index.mjs：MClaw App Basic 票、伪设备标识与 App UA，再换模型 key；未核实无需身份伪装的正式发钥流程。",
+      "sourceFiles": [
+        "packages/mclaw/index.mjs"
+      ]
+    },
+    {
+      "number": 43,
+      "name": "DeepAI Code",
+      "sourcePackage": "magpie-deepaicode",
+      "providers": [
+        "deepaicode"
+      ],
+      "status": "partial-native-api",
+      "reason": "已只读核对固定 e18c6b3 上游源码/协议/NOTICE：本人 Key + 本人真实设备 SHA-256、/theos 验钥与动态 Chat/Responses；不生成/派生/轮换指纹。浏览器回环与桌面读取未迁移；验钥可能触发当日设备额度。",
+      "extension": "native-deepai-code",
+      "sourceRevision": "e18c6b3bf95a0d79638fd9848da33518dacfa97f",
+      "sourceFiles": [
+        "PROTOCOL.md",
+        "src/direct.mjs",
+        "src/constants.mjs",
+        "src/catalog.mjs",
+        "src/login.mjs",
+        "src/usage.mjs",
+        "NOTICE",
+        "LICENSE"
+      ]
+    },
+    {
+      "number": 44,
+      "name": "Antigravity (local agy CLI)",
+      "sourcePackage": "@magpie-community/opencode-agy-cli-auth",
+      "providers": [
+        "agy-cli"
+      ],
+      "status": "blocked-cli-conflict",
+      "reason": "已审 index.mjs：通过 spawnAgy/agy ACP、本地 nc/MCP shim 和 CLI 会话运行；与纯 OFM→厂商、不允许 CLI 桥明确冲突。",
+      "sourceFiles": [
+        "packages/agy-cli/index.mjs"
+      ]
+    }
+  ],
+  "validation": "Offline synthetic fixtures only; no production keys, account login or generation; no registry rebuild."
+}

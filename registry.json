@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-07T16:13:59.442Z",
+  "generatedAt": "2026-11-08T05:16:19.253Z",
   "plugins": [
     {
       "schemaVersion": 1,
@@ -653,6 +653,616 @@
       "publishedAt": "2026-11-07T00:00:00.000Z",
       "changelog": [
         "1.0.0 — 社区扩展适配"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "native-agnes",
+      "version": "1.0.1",
+      "type": "channel",
+      "name": "Agnes AI（OFM 原生）",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/native-agnes/main.mjs",
+        "size": 3288,
+        "sha256": "587ba95681e8ff5a6fb02b0c06e836eddbc0cb5e97f36bb874f6acb790757b6c"
+      },
+      "description": "本人 API Key；浏览器登录未迁移。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.2",
+      "permissions": {
+        "network": [
+          "https://apihub.agnes-ai.com"
+        ],
+        "secrets": [
+          "account"
+        ],
+        "storage": false
+      },
+      "requires": [
+        "native-auth"
+      ],
+      "config": [
+        {
+          "key": "accountId",
+          "type": "text",
+          "label": "账号 ID",
+          "description": "",
+          "default": "default"
+        }
+      ],
+      "summary": "本人 API Key；浏览器登录未迁移。",
+      "tags": [
+        "auth",
+        "channel",
+        "native"
+      ],
+      "publishedAt": "2026-11-08T00:00:00.000Z",
+      "changelog": [
+        "1.0.1 — 原生凭据表单、账号隔离及厂商协议直连"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "native-agnes-code",
+      "version": "1.0.0",
+      "type": "channel",
+      "name": "Agnes Code（OFM 原生）",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/native-agnes-code/main.mjs",
+        "size": 3350,
+        "sha256": "7b32443890608905fbad659b3ac0e0cf12822d3915b3c4eb2cfea275d40e8c3d"
+      },
+      "description": "本人已有 accessToken 直连；不读取或解密桌面会话，不提供登录续期。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.2",
+      "permissions": {
+        "network": [
+          "https://api-agnes-code.agnes-ai.com"
+        ],
+        "secrets": [
+          "account"
+        ],
+        "storage": false
+      },
+      "requires": [
+        "native-auth"
+      ],
+      "config": [
+        {
+          "key": "accountId",
+          "type": "text",
+          "label": "账号 ID",
+          "description": "",
+          "default": "default"
+        }
+      ],
+      "summary": "本人已有 accessToken 直连；不读取或解密桌面会话，不提供登录续期。",
+      "tags": [
+        "auth",
+        "channel",
+        "native"
+      ],
+      "publishedAt": "2026-11-08T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — 原生凭据表单、账号隔离及厂商协议直连"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "native-astudio",
+      "version": "1.0.1",
+      "type": "channel",
+      "name": "AStudio（OFM 原生）",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/native-astudio/main.mjs",
+        "size": 3839,
+        "sha256": "e95544a4b3c5a3b421c0fcf1a54b818679d24401b70fb6b6942550ead73b6834"
+      },
+      "description": "本人已有 modelBearerToken 与动态模型、Responses；浏览器及桌面登录未迁移。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.2",
+      "permissions": {
+        "network": [
+          "https://astronstudio-api-volces-prod.xf-yun.com"
+        ],
+        "secrets": [
+          "account"
+        ],
+        "storage": false
+      },
+      "requires": [
+        "native-auth"
+      ],
+      "config": [
+        {
+          "key": "accountId",
+          "type": "text",
+          "label": "账号 ID",
+          "description": "",
+          "default": "default"
+        }
+      ],
+      "summary": "本人已有 modelBearerToken 与动态模型、Responses；浏览器及桌面登录未迁移。",
+      "tags": [
+        "auth",
+        "channel",
+        "native"
+      ],
+      "publishedAt": "2026-11-08T00:00:00.000Z",
+      "changelog": [
+        "1.0.1 — 保留目录视觉与思考能力，避免宿主默认反转",
+        "1.0.0 — 原生凭据表单、账号隔离及厂商协议直连"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "native-cline",
+      "version": "1.0.1",
+      "type": "channel",
+      "name": "Cline（OFM 原生 API）",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/native-cline/main.mjs",
+        "size": 4232,
+        "sha256": "21a1a92ce82b689502e5e4d1f2105937c4b6c1b9014e0a82699e1fa5b0d9b9b7"
+      },
+      "description": "本人正式 Cline API Key、云模型目录与 Chat；不迁移 WorkOS 登录，不冒用 CLI 身份，不支持客户端专享免费模型。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.2",
+      "permissions": {
+        "network": [
+          "https://api.cline.bot"
+        ],
+        "secrets": [
+          "account"
+        ],
+        "storage": false
+      },
+      "requires": [
+        "native-auth"
+      ],
+      "config": [
+        {
+          "key": "accountId",
+          "type": "text",
+          "label": "账号 ID",
+          "description": "",
+          "default": "default"
+        }
+      ],
+      "summary": "正式 API Key 直连；不支持客户端专享免费模型与浏览器登录。",
+      "tags": [
+        "auth",
+        "channel",
+        "native"
+      ],
+      "publishedAt": "2026-11-08T00:00:00.000Z",
+      "changelog": [
+        "1.0.1 — 修复 subject-only 认证与数字字符串/上游 provider 上下文",
+        "1.0.0 — OFM 原生认证与厂商直连"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "native-cloudflare",
+      "version": "1.0.1",
+      "type": "channel",
+      "name": "Cloudflare Workers AI（OFM 原生）",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/native-cloudflare/main.mjs",
+        "size": 3548,
+        "sha256": "167bb8daa5591e7e65400b4b898bbe15e10336229c1265b94053b6634dddac18"
+      },
+      "description": "OFM 保存 Cloudflare Token 与账号 ID，直接读取文本模型目录并连接 Workers AI；无需 Magpie。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.2",
+      "permissions": {
+        "network": [
+          "https://api.cloudflare.com"
+        ],
+        "secrets": [
+          "account"
+        ],
+        "storage": false
+      },
+      "requires": [
+        "native-auth"
+      ],
+      "config": [
+        {
+          "key": "accountId",
+          "type": "text",
+          "label": "账号 ID",
+          "description": "",
+          "default": "default"
+        }
+      ],
+      "summary": "OFM 原生 Cloudflare Token 认证与 Workers AI 模型渠道。",
+      "tags": [
+        "auth",
+        "channel",
+        "native"
+      ],
+      "publishedAt": "2026-11-08T00:00:00.000Z",
+      "changelog": [
+        "1.0.1 — 认证表单、methodId 校验与凭据隔离；去除借用客户端身份",
+        "1.0.0 — OFM 原生认证与厂商直连"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "native-commandcode",
+      "version": "1.0.0",
+      "type": "channel",
+      "name": "Command Code Provider API（OFM 原生）",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/native-commandcode/main.mjs",
+        "size": 4222,
+        "sha256": "efe7c26ae5fffd6fc4ee3783e2d74efdd583a33a3288a96d7923461e61849b71"
+      },
+      "description": "本人非 Go 计划 Provider API key；Chat、Responses、Messages；不支持 Go /alpha/generate 或 CLI 登录。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.2",
+      "permissions": {
+        "network": [
+          "https://api.commandcode.ai"
+        ],
+        "secrets": [
+          "account"
+        ],
+        "storage": false
+      },
+      "requires": [
+        "native-auth"
+      ],
+      "config": [
+        {
+          "key": "accountId",
+          "type": "text",
+          "label": "账号 ID",
+          "description": "",
+          "default": "default"
+        }
+      ],
+      "summary": "本人非 Go 计划 Provider API key；Chat、Responses、Messages；不支持 Go /alpha/generate 或 CLI 登录。",
+      "tags": [
+        "auth",
+        "channel",
+        "native"
+      ],
+      "publishedAt": "2026-11-08T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — 原生凭据表单、账号隔离及厂商协议直连"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "native-copilot",
+      "version": "1.0.2",
+      "type": "channel",
+      "name": "GitHub Copilot（OFM 原生）",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/native-copilot/main.mjs",
+        "size": 6721,
+        "sha256": "86dc328408d64528743874a432a3b157c6f43e91f9548293effe7d72246adbfa"
+      },
+      "description": "需本人获授权 OAuth App Client ID 与 Copilot API 权限；不借用官方客户端身份。GitHub.com 设备码与三协议代码仅离线验证，普通 App 不保证获得 Copilot 权限。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.2",
+      "permissions": {
+        "network": [
+          "https://github.com",
+          "https://api.github.com",
+          "https://api.githubcopilot.com"
+        ],
+        "secrets": [
+          "account"
+        ],
+        "storage": false
+      },
+      "requires": [
+        "native-auth"
+      ],
+      "config": [
+        {
+          "key": "accountId",
+          "type": "text",
+          "label": "账号 ID",
+          "description": "",
+          "default": "default"
+        }
+      ],
+      "summary": "需本人获授权 OAuth App Client ID 与 Copilot API 权限；不借用官方客户端身份。GitHub.com 设备码与三协议代码仅离线验证，普通 App 不保证获得 Copilot 权限。",
+      "tags": [
+        "auth",
+        "channel",
+        "native"
+      ],
+      "publishedAt": "2026-11-08T00:00:00.000Z",
+      "changelog": [
+        "1.0.2 — 设备轮询保留服务器间隔并累加 slow_down 状态",
+        "1.0.1 — 认证表单、methodId 校验与凭据隔离；去除借用客户端身份",
+        "1.0.0 — OFM 原生认证与厂商直连"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "native-deepai-code",
+      "version": "1.0.0",
+      "type": "channel",
+      "name": "DeepAI Code（OFM 原生）",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/native-deepai-code/main.mjs",
+        "size": 4696,
+        "sha256": "a7e0eadc18dee0ca03aa760a75ad9498b8f983dcbaf5d7ca598085ed9c9d810d"
+      },
+      "description": "本人 API Key + 本人真实设备指纹直连动态模型和 Chat/Responses。验钥可能触发当日设备额度；不生成/派生/轮换指纹，不读取桌面凭据，浏览器登录未迁移。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.2",
+      "permissions": {
+        "network": [
+          "https://api.deepai.org"
+        ],
+        "secrets": [
+          "account"
+        ],
+        "storage": false
+      },
+      "requires": [
+        "native-auth"
+      ],
+      "config": [
+        {
+          "key": "accountId",
+          "type": "text",
+          "label": "账号 ID",
+          "description": "",
+          "default": "default"
+        }
+      ],
+      "summary": "区别于 deepai-code：使用 OFM 原生账号库和授权表单，不用普通 secrets 配置。API-only；需本人真实设备 SHA-256，不伪造身份或绕过额度。",
+      "tags": [
+        "auth",
+        "channel",
+        "native"
+      ],
+      "publishedAt": "2026-11-08T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — OFM 原生认证与厂商直连"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "native-inkstone",
+      "version": "1.0.1",
+      "type": "channel",
+      "name": "书生·端砚（OFM 原生）",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/native-inkstone/main.mjs",
+        "size": 3505,
+        "sha256": "72aef7ae574dab2aac9de544e39cbd5bb20b832a29160532c50120e4981d9cc0"
+      },
+      "description": "本人 TokenPlan API Key；浏览器登录、墨点与发钥未迁移。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.2",
+      "permissions": {
+        "network": [
+          "https://discovery-api.intern-ai.org.cn"
+        ],
+        "secrets": [
+          "account"
+        ],
+        "storage": false
+      },
+      "requires": [
+        "native-auth"
+      ],
+      "config": [
+        {
+          "key": "accountId",
+          "type": "text",
+          "label": "账号 ID",
+          "description": "",
+          "default": "default"
+        }
+      ],
+      "summary": "本人 TokenPlan API Key；浏览器登录、墨点与发钥未迁移。",
+      "tags": [
+        "auth",
+        "channel",
+        "native"
+      ],
+      "publishedAt": "2026-11-08T00:00:00.000Z",
+      "changelog": [
+        "1.0.1 — 保留实时目录视觉与思考能力",
+        "1.0.0 — 原生凭据表单、账号隔离及厂商协议直连"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "native-opendesign",
+      "version": "1.0.0",
+      "type": "channel",
+      "name": "Open Design（OFM 原生）",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/native-opendesign/main.mjs",
+        "size": 3856,
+        "sha256": "773fa0e54f534673527de4931a8e11423829c62a41152b233896e61859e5a692"
+      },
+      "description": "本人 runtime API key，支持 Chat、Responses、Messages；设备登录与控制面未迁移。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.2",
+      "permissions": {
+        "network": [
+          "https://amr-link.open-design.ai"
+        ],
+        "secrets": [
+          "account"
+        ],
+        "storage": false
+      },
+      "requires": [
+        "native-auth"
+      ],
+      "config": [
+        {
+          "key": "accountId",
+          "type": "text",
+          "label": "账号 ID",
+          "description": "",
+          "default": "default"
+        }
+      ],
+      "summary": "本人 runtime API key，支持 Chat、Responses、Messages；设备登录与控制面未迁移。",
+      "tags": [
+        "auth",
+        "channel",
+        "native"
+      ],
+      "publishedAt": "2026-11-08T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — 原生凭据表单、账号隔离及厂商协议直连"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "native-river",
+      "version": "1.0.2",
+      "type": "channel",
+      "name": "River（OFM 原生）",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/native-river/main.mjs",
+        "size": 3900,
+        "sha256": "4317788831bca451de1c8d49f042f18c7354ffda09fb2095e0ab9c4b8a4e6d3b"
+      },
+      "description": "由 OFM 保存本人凭据并直连厂商模型目录与 Chat 接口；无需 Magpie 或本地渠道桥。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.2",
+      "permissions": {
+        "network": [
+          "https://api.river.ai"
+        ],
+        "secrets": [
+          "account"
+        ],
+        "storage": false
+      },
+      "requires": [
+        "native-auth"
+      ],
+      "config": [
+        {
+          "key": "accountId",
+          "type": "text",
+          "label": "账号 ID",
+          "description": "",
+          "default": "default"
+        }
+      ],
+      "summary": "由 OFM 保存本人凭据并直连厂商模型目录与 Chat 接口；无需 Magpie 或本地渠道桥。",
+      "tags": [
+        "auth",
+        "channel",
+        "native"
+      ],
+      "publishedAt": "2026-11-08T00:00:00.000Z",
+      "changelog": [
+        "1.0.2 — 合并可核验 id 能力表，未知模型保持保守",
+        "1.0.1 — 认证表单、methodId 校验与凭据隔离；去除借用客户端身份",
+        "1.0.0 — OFM 原生认证与厂商直连"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "native-sensenova",
+      "version": "1.0.0",
+      "type": "channel",
+      "name": "SenseNova Token Plan（OFM 原生）",
+      "main": {
+        "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/native-sensenova/main.mjs",
+        "size": 3663,
+        "sha256": "85ec9ac6f319c5a3ca679b869cb033fb4f11921e2b56f810a90e6bc1245497c7"
+      },
+      "description": "本人正式 Token Plan API Key；控制台登录、发钥与续期未迁移。",
+      "author": "OFM Extensions maintainers",
+      "license": "MIT",
+      "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+      "icon": "",
+      "minHost": "2.8.2",
+      "permissions": {
+        "network": [
+          "https://token.sensenova.cn"
+        ],
+        "secrets": [
+          "account"
+        ],
+        "storage": false
+      },
+      "requires": [
+        "native-auth"
+      ],
+      "config": [
+        {
+          "key": "accountId",
+          "type": "text",
+          "label": "账号 ID",
+          "description": "",
+          "default": "default"
+        }
+      ],
+      "summary": "本人正式 Token Plan API Key；控制台登录、发钥与续期未迁移。",
+      "tags": [
+        "auth",
+        "channel",
+        "native"
+      ],
+      "publishedAt": "2026-11-08T00:00:00.000Z",
+      "changelog": [
+        "1.0.0 — 原生凭据表单、账号隔离及厂商协议直连"
       ]
     },
     {

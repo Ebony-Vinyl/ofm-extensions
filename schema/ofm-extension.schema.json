@@ -8,6 +8,7 @@
   "additionalProperties": false,
   "properties": {
     "schemaVersion": { "const": 1 },
+    "requires": { "type": "array", "maxItems": 16, "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,63}$" } },
     "id": {
       "type": "string",
       "pattern": "^[a-z][a-z0-9-]{1,47}$",

@@ -170,12 +170,14 @@ export function parseManifestStrict(raw) {
     if (raw.models.length > 256) throw new Error('manifest models exceed 256 rows')
     models = raw.models.map(parseModelRowStrict)
   }
+  if (raw.requires !== undefined && (!Array.isArray(raw.requires) || raw.requires.length > 16 || raw.requires.some(value => typeof value !== 'string' || !/^[a-z][a-z0-9-]{0,63}$/.test(value)))) throw new Error('invalid required capabilities')
   const config = parseConfigStrict(raw.config)
   const manifest = {
     schemaVersion: 1,
     id, version, type: raw.type, name, main,
     description, author, license, homepage, repository, icon, minHost,
     permissions,
+    ...(raw.requires !== undefined ? { requires: [...new Set(raw.requires)].sort() } : {}),
     ...(raw.replaces !== undefined ? { replaces: raw.replaces } : {}),
     ...(cover !== undefined ? { cover } : {}),
     ...(raw.type === 'enhancement' ? { hooks: raw.hooks } : {}),

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "native-copilot",
+  "version": "1.0.2",
+  "type": "channel",
+  "name": "GitHub Copilot（OFM 原生）",
+  "description": "需本人获授权 OAuth App Client ID 与 Copilot API 权限；不借用官方客户端身份。GitHub.com 设备码与三协议代码仅离线验证，普通 App 不保证获得 Copilot 权限。",
+  "summary": "需本人获授权 OAuth App Client ID 与 Copilot API 权限；不借用官方客户端身份。GitHub.com 设备码与三协议代码仅离线验证，普通 App 不保证获得 Copilot 权限。",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "minHost": "2.8.2",
+  "requires": [
+    "native-auth"
+  ],
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "permissions": {
+    "network": [
+      "https://github.com",
+      "https://api.github.com",
+      "https://api.githubcopilot.com"
+    ],
+    "secrets": [
+      "account"
+    ],
+    "storage": false
+  },
+  "config": [
+    {
+      "key": "accountId",
+      "type": "text",
+      "label": "账号 ID",
+      "default": "default"
+    }
+  ],
+  "tags": [
+    "auth",
+    "channel",
+    "native"
+  ],
+  "publishedAt": "2026-11-08T00:00:00.000Z",
+  "changelog": [
+    "1.0.2 — 设备轮询保留服务器间隔并累加 slow_down 状态",
+    "1.0.1 — 认证表单、methodId 校验与凭据隔离；去除借用客户端身份",
+    "1.0.0 — OFM 原生认证与厂商直连"
+  ],
+  "files": [
+    "main.mjs"
+  ]
+}
