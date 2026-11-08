@@ -1,0 +1,303 @@
+{
+  "referencePolicy": "Reference text only; never execute snapshot code. No real credentials, login, generation or free-access bypass.",
+  "communitySource": {
+    "repository": "https://github.com/magpie-community/plugins",
+    "revision": "7d84184c327c0564cf8aa78e8a04b595348cab8d",
+    "license": "MIT",
+    "rootCopyright": "Copyright (c) 2026 magpie-community contributors"
+  },
+  "packages": [
+    {
+      "extension": "native-agnes",
+      "sourceFiles": [
+        "packages/agnes/index.mjs",
+        "packages/agnes/LICENSE"
+      ],
+      "copyright": "Copyright (c) 2026 magpie-community contributors",
+      "authentication": "Bearer formal API key at apihub; browser console session is not treated as an API key",
+      "models": "GET https://apihub.agnes-ai.com/v1/models",
+      "inference": [
+        "POST https://apihub.agnes-ai.com/v1/chat/completions"
+      ],
+      "notPorted": [
+        "browser/CDP login",
+        "console key issuance",
+        "quota"
+      ]
+    },
+    {
+      "extension": "native-river",
+      "sourceFiles": [
+        "packages/river/index.mjs",
+        "packages/river/LICENSE"
+      ],
+      "copyright": "Copyright (c) 2026 real-jacket",
+      "authentication": "Bearer formal API key; authenticated catalog before persistence",
+      "models": "GET https://api.river.ai/v1/models",
+      "inference": [
+        "POST https://api.river.ai/v1/chat/completions",
+        "POST https://api.river.ai/v1/responses"
+      ],
+      "notPorted": [
+        "public pricing feed",
+        "curated per-model reasoning effort variants",
+        "quota"
+      ]
+    },
+    {
+      "extension": "native-cloudflare",
+      "sourceFiles": [
+        "packages/cloudflare-workers-ai/src/index.mjs",
+        "packages/cloudflare-workers-ai/LICENSE"
+      ],
+      "copyright": "Copyright (c) 2026 Guislabert",
+      "authentication": "Bearer API token and explicit 32-hex Account ID; native account-scoped catalog replaces upstream models.dev dependency",
+      "models": "GET https://api.cloudflare.com/client/v4/accounts/{account}/ai/models/search?per_page=100&page={page}",
+      "inference": [
+        "POST https://api.cloudflare.com/client/v4/accounts/{account}/ai/v1/chat/completions"
+      ],
+      "notPorted": [
+        "quota and paid-plan entitlement reporting",
+        "models.dev metadata"
+      ]
+    },
+    {
+      "extension": "native-copilot",
+      "sourceFiles": [
+        "packages/copilot/index.mjs",
+        "packages/copilot/LICENSE"
+      ],
+      "copyright": "Copyright (c) 2025 SST",
+      "authentication": "Own authorized OAuth App clientId required; no borrowed GitHub App ID, Editor-Version or Copilot integration identity; ctx.auth.refresh/refreshAuth uses host-scoped serialization",
+      "authorization": [
+        "POST https://github.com/login/device/code",
+        "POST https://github.com/login/oauth/access_token",
+        "GET https://api.github.com/copilot_internal/v2/token"
+      ],
+      "models": "GET https://api.githubcopilot.com/models",
+      "inference": [
+        "POST https://api.githubcopilot.com/chat/completions",
+        "POST https://api.githubcopilot.com/responses",
+        "POST https://api.githubcopilot.com/v1/messages"
+      ],
+      "notPorted": [
+        "independent-client permission grant has not been established",
+        "Enterprise endpoints",
+        "quota"
+      ]
+    },
+    {
+      "extension": "native-cline",
+      "sourceFiles": [
+        "packages/cline/index.mjs",
+        "packages/cline/README.md",
+        "LICENSE"
+      ],
+      "copyright": "Copyright (c) 2026 magpie-community contributors",
+      "authentication": "Formal API key from app.cline.bot Settings API Keys; Bearer; validate at /users/me, not a public model feed",
+      "authorization": [
+        "GET https://api.cline.bot/api/v1/users/me"
+      ],
+      "models": "GET https://api.cline.bot/api/v1/ai/cline/models",
+      "inference": [
+        "POST https://api.cline.bot/api/v1/chat/completions"
+      ],
+      "notPorted": [
+        "WorkOS/device login",
+        "Cline CLI identity/version/task headers",
+        "cline-free and stealth client-exclusive routes",
+        "provider routing overrides",
+        "quota"
+      ]
+    },
+    {
+      "extension": "native-opendesign",
+      "sourceFiles": [
+        "packages/opendesign/index.mjs",
+        "packages/opendesign/models.mjs",
+        "LICENSE"
+      ],
+      "copyright": "Copyright (c) 2026 magpie-community contributors",
+      "authentication": "Bearer runtime key only; reject vela_ctrl_ control key; catalog verified before persistence",
+      "models": "GET https://amr-link.open-design.ai/v1/models",
+      "inference": [
+        "POST https://amr-link.open-design.ai/v1/chat/completions",
+        "POST https://amr-link.open-design.ai/v1/responses",
+        "POST https://amr-link.open-design.ai/v1/messages"
+      ],
+      "wireSelection": "deepseek-v4-pro and claude-haiku-5.5 use responses; glm-5.3-flash uses messages; other catalog ids use chat, as source MODEL_WIRE",
+      "notPorted": [
+        "Vela CLI device identity and control-plane authorization",
+        "billing/control key",
+        "curated reasoning variants",
+        "quota"
+      ]
+    },
+    {
+      "extension": "native-agnes-code",
+      "sourceFiles": [
+        "packages/agnes-code/index.mjs",
+        "packages/agnes-code/LICENSE"
+      ],
+      "copyright": "Copyright (c) 2026 Pursuit806",
+      "authentication": "User-supplied own existing accessToken as Bearer, no automated desktop extraction; token expiry is not extended",
+      "models": "GET https://api-agnes-code.agnes-ai.com/v1/models",
+      "inference": [
+        "POST https://api-agnes-code.agnes-ai.com/v1/chat/completions"
+      ],
+      "notPorted": [
+        "desktop DPAPI/safeStorage",
+        "browser login",
+        "refresh",
+        "credits/checkin"
+      ]
+    },
+    {
+      "extension": "native-sensenova",
+      "sourceFiles": [
+        "packages/sensenova/index.mjs",
+        "packages/sensenova/lib/protocol.mjs",
+        "packages/sensenova/lib/models.mjs",
+        "LICENSE"
+      ],
+      "copyright": "Copyright (c) 2026 magpie-community contributors",
+      "authentication": "Formal Token Plan API key as Bearer, not console OAuth token; authenticated catalog required",
+      "models": "GET https://token.sensenova.cn/v1/models",
+      "inference": [
+        "POST https://token.sensenova.cn/v1/chat/completions"
+      ],
+      "notPorted": [
+        "password and browser OAuth",
+        "browser fingerprint headers",
+        "console key issuance and rotation",
+        "plan allowance filtering",
+        "quota",
+        "image generation"
+      ]
+    },
+    {
+      "extension": "native-inkstone",
+      "sourceFiles": [
+        "packages/inkstone/index.mjs",
+        "packages/inkstone/lib/protocol.mjs",
+        "packages/inkstone/lib/models.mjs",
+        "packages/inkstone/lib/preflight.mjs",
+        "packages/inkstone/LICENSE"
+      ],
+      "copyright": "Copyright (c) 2026 magpie-community contributors",
+      "authentication": "Formal TOKENPLAN_API_KEY as Bearer; not a console uaa-token",
+      "models": "GET https://discovery-api.intern-ai.org.cn/v1/models",
+      "inference": [
+        "POST https://discovery-api.intern-ai.org.cn/v1/chat/completions"
+      ],
+      "notPorted": [
+        "browser/CDP login",
+        "console key issuance and pruning",
+        "public metadata feed",
+        "image preflight",
+        "special error translation",
+        "quota"
+      ]
+    },
+    {
+      "extension": "native-commandcode",
+      "sourceFiles": [
+        "packages/commandcode/index.mjs",
+        "packages/commandcode/README.md",
+        "LICENSE"
+      ],
+      "copyright": "Copyright (c) 2026 magpie-community contributors",
+      "authentication": "Formal non-Go Provider API key in both Authorization Bearer and x-api-key; authenticated /alpha/whoami before catalog/persistence because the model catalog can be public",
+      "models": "GET https://api.commandcode.ai/provider/v1/models",
+      "inference": [
+        "POST https://api.commandcode.ai/provider/v1/chat/completions",
+        "POST https://api.commandcode.ai/provider/v1/responses",
+        "POST https://api.commandcode.ai/provider/v1/messages"
+      ],
+      "wireSelection": "supported_endpoints chooses chat, responses, messages in source preference order; Claude defaults to messages",
+      "notPorted": [
+        "Go /alpha/generate",
+        "SystemOne",
+        "CLI session and version identity",
+        "browser callback",
+        "special reasoning rewrites",
+        "quota"
+      ],
+      "authorization": [
+        "GET https://api.commandcode.ai/alpha/whoami"
+      ]
+    },
+    {
+      "extension": "native-astudio",
+      "sourceFiles": [
+        "packages/astudio/index.mjs",
+        "packages/astudio/LICENSE"
+      ],
+      "copyright": "Copyright (c) 2026 Pursuit806",
+      "authentication": "User-supplied own modelBearerToken as Bearer; no account-side clientType/studioVersion identity",
+      "models": "GET https://astronstudio-api-volces-prod.xf-yun.com/api/v1/model-manager/models",
+      "inference": [
+        "POST https://astronstudio-api-volces-prod.xf-yun.com/model-gateway/v1/responses"
+      ],
+      "notPorted": [
+        "browser/CDP login",
+        "desktop/registry reads",
+        "model token issuance",
+        "refresh",
+        "quota/checkin"
+      ]
+    },
+    {
+      "extension": "native-deepai-code",
+      "repository": "https://github.com/aqiu817/magpie-deepaicode",
+      "revision": "e18c6b3bf95a0d79638fd9848da33518dacfa97f",
+      "sourceFiles": [
+        "PROTOCOL.md",
+        "src/constants.mjs",
+        "src/direct.mjs",
+        "src/catalog.mjs",
+        "src/login.mjs",
+        "src/usage.mjs",
+        "LICENSE",
+        "NOTICE"
+      ],
+      "sourceAccess": "Read-only GitHub API; no downloaded files or executed code",
+      "license": "MIT",
+      "copyright": "Copyright (c) 2026 aqiu817",
+      "authentication": "Api-Key plus lane 2 and user-supplied own real-device SHA-256; never Authorization Bearer; never generate, derive per account or rotate a fingerprint",
+      "authorization": [
+        "GET https://api.deepai.org/deepai_code/theos"
+      ],
+      "authorizationSideEffect": "The authenticated allowance request can trigger the vendor's daily device allocation; disclosed in auth form and scope. Public /models is never used to validate the key.",
+      "models": "GET https://api.deepai.org/deepai_code/models (public, no Api-Key)",
+      "inference": [
+        "POST https://api.deepai.org/deepai_code/chat/completions",
+        "POST https://api.deepai.org/deepai_code/responses"
+      ],
+      "notPorted": [
+        "browser localhost callback and code exchange",
+        "desktop credential read",
+        "machine fingerprint discovery",
+        "quota/checkin hook",
+        "vendor error rewriting"
+      ],
+      "notice": "Protocol facts derived upstream from MIT DeepAICode2API (https://github.com/2951461586/DeepAICode2API); no source from it copied. Unofficial integration; no affiliation or endorsement by DeepAI or reference authors."
+    }
+  ],
+  "nousReview": {
+    "sourceFiles": [
+      "packages/nous/index.mjs",
+      "packages/nous/oauth.mjs",
+      "packages/nous/README.md"
+    ],
+    "officialReference": "https://github.com/NousResearch/hermes-agent/tree/8b9ac5773ea07189f23aa9dfcdba1e59fd759c21",
+    "officialFilesRead": [
+      "hermes_cli/auth_nous.py",
+      "hermes_cli/providers.py",
+      "hermes_cli/auth_constants.py"
+    ],
+    "result": "OAuth inference JWT flow verified as protocol only; README explicitly says third-party permission for hermes-cli is unconfirmed. No verified formal API-key path for this same Portal product. No package published or borrowed clientId used."
+  },
+  "licenseDelivery": "Full MIT grant and relevant package copyright preserved in main.mjs, which is the host-downloaded file.",
+  "validation": "Synthetic isolated credentials and local fixtures only; no proof of production account entitlement, real authorization or generation."
+}
