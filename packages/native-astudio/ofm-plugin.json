@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "native-astudio",
+  "version": "1.0.1",
+  "type": "channel",
+  "name": "AStudio（OFM 原生）",
+  "description": "本人已有 modelBearerToken 与动态模型、Responses；浏览器及桌面登录未迁移。",
+  "summary": "本人已有 modelBearerToken 与动态模型、Responses；浏览器及桌面登录未迁移。",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "minHost": "2.8.2",
+  "requires": [
+    "native-auth"
+  ],
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "permissions": {
+    "network": [
+      "https://astronstudio-api-volces-prod.xf-yun.com"
+    ],
+    "secrets": [
+      "account"
+    ],
+    "storage": false
+  },
+  "config": [
+    {
+      "key": "accountId",
+      "type": "text",
+      "label": "账号 ID",
+      "default": "default"
+    }
+  ],
+  "tags": [
+    "auth",
+    "channel",
+    "native"
+  ],
+  "publishedAt": "2026-11-08T00:00:00.000Z",
+  "changelog": [
+    "1.0.1 — 保留目录视觉与思考能力，避免宿主默认反转",
+    "1.0.0 — 原生凭据表单、账号隔离及厂商协议直连"
+  ],
+  "files": [
+    "main.mjs"
+  ]
+}

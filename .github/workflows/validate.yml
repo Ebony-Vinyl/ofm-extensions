@@ -14,6 +14,6 @@ jobs:
         with:
           node-version: '22'
       - name: community adapter regressions
-        run: node --experimental-vm-modules --test tests/community.test.mjs tests/runtime.test.mjs
+        run: node --experimental-vm-modules --test tests/community.test.mjs tests/runtime.test.mjs tests/native-providers.test.mjs
       - name: validate packages and the signed registry
         run: node scripts/validate.mjs --check

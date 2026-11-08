@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "native-cloudflare",
+  "version": "1.0.1",
+  "type": "channel",
+  "name": "Cloudflare Workers AI（OFM 原生）",
+  "description": "OFM 保存 Cloudflare Token 与账号 ID，直接读取文本模型目录并连接 Workers AI；无需 Magpie。",
+  "summary": "OFM 原生 Cloudflare Token 认证与 Workers AI 模型渠道。",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "minHost": "2.8.2",
+  "requires": [
+    "native-auth"
+  ],
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "permissions": {
+    "network": [
+      "https://api.cloudflare.com"
+    ],
+    "secrets": [
+      "account"
+    ],
+    "storage": false
+  },
+  "config": [
+    {
+      "key": "accountId",
+      "type": "text",
+      "label": "账号 ID",
+      "default": "default"
+    }
+  ],
+  "tags": [
+    "auth",
+    "channel",
+    "native"
+  ],
+  "publishedAt": "2026-11-08T00:00:00.000Z",
+  "changelog": [
+    "1.0.1 — 认证表单、methodId 校验与凭据隔离；去除借用客户端身份",
+    "1.0.0 — OFM 原生认证与厂商直连"
+  ],
+  "files": [
+    "main.mjs"
+  ]
+}

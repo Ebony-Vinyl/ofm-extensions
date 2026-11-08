@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "native-cline",
+  "version": "1.0.1",
+  "type": "channel",
+  "name": "Cline（OFM 原生 API）",
+  "description": "本人正式 Cline API Key、云模型目录与 Chat；不迁移 WorkOS 登录，不冒用 CLI 身份，不支持客户端专享免费模型。",
+  "summary": "正式 API Key 直连；不支持客户端专享免费模型与浏览器登录。",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "minHost": "2.8.2",
+  "requires": [
+    "native-auth"
+  ],
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "permissions": {
+    "network": [
+      "https://api.cline.bot"
+    ],
+    "secrets": [
+      "account"
+    ],
+    "storage": false
+  },
+  "config": [
+    {
+      "key": "accountId",
+      "type": "text",
+      "label": "账号 ID",
+      "default": "default"
+    }
+  ],
+  "tags": [
+    "auth",
+    "channel",
+    "native"
+  ],
+  "publishedAt": "2026-11-08T00:00:00.000Z",
+  "changelog": [
+    "1.0.1 — 修复 subject-only 认证与数字字符串/上游 provider 上下文",
+    "1.0.0 — OFM 原生认证与厂商直连"
+  ],
+  "files": [
+    "main.mjs"
+  ]
+}

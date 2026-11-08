@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "native-inkstone",
+  "version": "1.0.1",
+  "type": "channel",
+  "name": "书生·端砚（OFM 原生）",
+  "description": "本人 TokenPlan API Key；浏览器登录、墨点与发钥未迁移。",
+  "summary": "本人 TokenPlan API Key；浏览器登录、墨点与发钥未迁移。",
+  "author": "OFM Extensions maintainers",
+  "license": "MIT",
+  "minHost": "2.8.2",
+  "requires": [
+    "native-auth"
+  ],
+  "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "homepage": "https://github.com/Ebony-Vinyl/ofm-extensions",
+  "permissions": {
+    "network": [
+      "https://discovery-api.intern-ai.org.cn"
+    ],
+    "secrets": [
+      "account"
+    ],
+    "storage": false
+  },
+  "config": [
+    {
+      "key": "accountId",
+      "type": "text",
+      "label": "账号 ID",
+      "default": "default"
+    }
+  ],
+  "tags": [
+    "auth",
+    "channel",
+    "native"
+  ],
+  "publishedAt": "2026-11-08T00:00:00.000Z",
+  "changelog": [
+    "1.0.1 — 保留实时目录视觉与思考能力",
+    "1.0.0 — 原生凭据表单、账号隔离及厂商协议直连"
+  ],
+  "files": [
+    "main.mjs"
+  ]
+}
