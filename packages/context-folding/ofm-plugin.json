@@ -5,7 +5,7 @@
   "type": "enhancement",
   "name": "可恢复上下文折叠",
   "description": "仅折叠助手显式标记且已归档回读的长片段，延迟一个不同请求周期生效；通过社区桥 CLI 按项目和会话恢复原文。",
-  "author": "OFM Extensions maintainers",
+  "author": "LIghtJUNction (https://github.com/LIghtJUNction)",
   "license": "MIT",
   "homepage": "https://github.com/LIghtJUNction/magpie-context-folding",
   "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-07T16:13:59.442Z",
+  "generatedAt": "2026-11-17T10:35:00.737Z",
   "plugins": [
     {
       "schemaVersion": 1,
@@ -14,7 +14,7 @@
         "sha256": "cbd7f2aa01474c6d0699951ea82586bcbb4e7a853c5422697c7cd743008d5299"
       },
       "description": "通过本机 OFM 社区桥使用 Google AI Studio 的本人账号。浏览器、PoW 和非标准流转换由独立启动的上游插件执行；本扩展不启动程序或读取浏览器凭据。",
-      "author": "OFM Extensions maintainers",
+      "author": "BUKOWSKIREAL (https://github.com/BUKOWSKIREAL)",
       "license": "MIT",
       "homepage": "https://github.com/BUKOWSKIREAL/magpie-gemini-web",
       "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
@@ -52,7 +52,7 @@
         "sha256": "a7aae72e6bf9a721bfc1e317e54569a0f2006f9f363ecb400c29e581bdea3fe4"
       },
       "description": "使用自己的 AMD Radeon Cloud API Key，动态读取可聊天模型，通过标准 Chat Completions 请求生成。额度与账号审核遵循 AMD 服务规则。",
-      "author": "OFM Extensions maintainers",
+      "author": "aqiu817 (https://github.com/aqiu817)",
       "license": "MIT",
       "homepage": "https://github.com/aqiu817/magpie-amd-cloud",
       "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
@@ -112,8 +112,8 @@
       },
       "cover": {
         "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/anthropic-compatible/cover.svg",
-        "size": 838,
-        "sha256": "7f3943f8aab12d08798c95db2d5a5b49c81e8d79340dc8e66e6e99167542227a"
+        "size": 852,
+        "sha256": "ce506d6d15de8255c297821cf4cc23841f2f95b7ce108c51cb5ae6b957585294"
       },
       "models": [
         {
@@ -177,7 +177,7 @@
         "sha256": "537d004fe3ef8ac15527bff83d47d0da05071fa88b65e0f7c09608bde79dbe5b"
       },
       "description": "通过本机社区桥调用 compress-core 压缩管线；默认保护系统提示和最近一轮，关闭原文采集、LLM 压缩及无检索存储的折叠策略。",
-      "author": "OFM Extensions maintainers",
+      "author": "manjughosa (https://github.com/manjughosa)",
       "license": "MIT",
       "homepage": "https://github.com/manjughosa/magpie-compress-core",
       "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
@@ -218,7 +218,7 @@
         "sha256": "b584ecf54683189c5a4b592b01b32c8dfd562382ef479340661da37b142c818b"
       },
       "description": "仅折叠助手显式标记且已归档回读的长片段，延迟一个不同请求周期生效；通过社区桥 CLI 按项目和会话恢复原文。",
-      "author": "OFM Extensions maintainers",
+      "author": "LIghtJUNction (https://github.com/LIghtJUNction)",
       "license": "MIT",
       "homepage": "https://github.com/LIghtJUNction/magpie-context-folding",
       "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
@@ -267,7 +267,7 @@
         "sha256": "bb6bfb744d8cdfaf8825c26a76f482d3c14e3d6a3bb9e5c348f0ceabc6788be3"
       },
       "description": "直连 DeepAI Code，使用本人的 API Key 与实际设备指纹，动态区分 Chat/Responses 模型；遵循平台免费及付费额度。",
-      "author": "OFM Extensions maintainers",
+      "author": "aqiu817 (https://github.com/aqiu817)",
       "license": "MIT",
       "homepage": "https://github.com/aqiu817/magpie-deepaicode",
       "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
@@ -306,7 +306,7 @@
         "sha256": "1dede47fc2933386e6a0088210900b527cf0853eedc22a80264a5dd29235f724"
       },
       "description": "通过本机 OFM 社区桥使用 DeepSeek Web 的本人账号。浏览器、PoW 和非标准流转换由独立启动的上游插件执行；本扩展不启动程序或读取浏览器凭据。",
-      "author": "OFM Extensions maintainers",
+      "author": "volcanicll (https://github.com/volcanicll)",
       "license": "MIT",
       "homepage": "https://github.com/volcanicll/magpie-deepseek-web-auth",
       "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
@@ -344,7 +344,7 @@
         "sha256": "72c48c974d16a816ac24c117d07aeb8f2d2c13f0d4c01aa49aa6276196078989"
       },
       "description": "通过本机 OFM 社区桥使用 Gemini Web 的本人账号。浏览器、PoW 和非标准流转换由独立启动的上游插件执行；本扩展不启动程序或读取浏览器凭据。",
-      "author": "OFM Extensions maintainers",
+      "author": "BUKOWSKIREAL (https://github.com/BUKOWSKIREAL)",
       "license": "MIT",
       "homepage": "https://github.com/BUKOWSKIREAL/magpie-gemini-web",
       "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
@@ -382,7 +382,7 @@
         "sha256": "e9965efa2e311283710023a35158c28eaa4bef0476b5bb38ba0e1d88a10a4454"
       },
       "description": "通过本机社区桥调用 deja-vu，按已授权项目检索本机会话；仅把召回内容作为不可信参考附到本轮用户消息。",
-      "author": "OFM Extensions maintainers",
+      "author": "vshulcz (https://github.com/vshulcz)",
       "license": "MIT",
       "homepage": "https://github.com/vshulcz/deja-vu",
       "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
@@ -448,8 +448,8 @@
       "replaces": "kilo",
       "cover": {
         "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/kilo-free/cover.svg",
-        "size": 838,
-        "sha256": "917288a7a7edf17fab751fe57bb3aee63178dd498c5506e68fdc97b8f5c62181"
+        "size": 852,
+        "sha256": "e0021d602c0496e6b90e7526a8f34b56227527e8cc0d20f5d4217f2da2d381c3"
       },
       "models": [
         {
@@ -590,8 +590,8 @@
       },
       "cover": {
         "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/model-filter/cover.svg",
-        "size": 838,
-        "sha256": "eda4a836f67fb8ce4e38e01fba4965df14455328c491b3002a7184555ad2b118"
+        "size": 852,
+        "sha256": "327297e16da3c618e10979eaabb0a94a2c41a9fb5fb9216680ba739fbd255b70"
       },
       "hooks": [
         "onRequest",
@@ -629,7 +629,7 @@
         "sha256": "96c5b87cd79794dfe8b3bc274af39bb9b144eb87064471a0a8af448ee1a97309"
       },
       "description": "通过本机 OFM 社区桥使用 Muse Web 的本人账号。浏览器、PoW 和非标准流转换由独立启动的上游插件执行；本扩展不启动程序或读取浏览器凭据。",
-      "author": "OFM Extensions maintainers",
+      "author": "JohnWangggg (https://github.com/JohnWangggg)",
       "license": "MIT",
       "homepage": "https://github.com/JohnWangggg/magpie-muse-web",
       "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
@@ -689,8 +689,8 @@
       },
       "cover": {
         "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/openai-compatible/cover.svg",
-        "size": 838,
-        "sha256": "3aefa41e87f9f946956ac3a0173f3d76f4171bb499f1ff23a4391d2603c9c6d2"
+        "size": 852,
+        "sha256": "4d307d028d322fcf28cfa55b43b63ac03058013a2864739af614d03535efc339"
       },
       "models": [
         {
@@ -763,7 +763,7 @@
         "sha256": "e2d537de6dc5f5a8ea33212b2d0ae63d894aa51ac08cf798852d99a171fc8521"
       },
       "description": "仅清理工具结果中的 ANSI 控制序列和连续重复进度行，保留命令、报错、普通对话与工具调用结构。",
-      "author": "OFM Extensions maintainers",
+      "author": "manjughosa (https://github.com/manjughosa)",
       "license": "MIT",
       "homepage": "https://github.com/manjughosa/magpie-compress-core",
       "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
@@ -813,8 +813,8 @@
       },
       "cover": {
         "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/param-override/cover.svg",
-        "size": 838,
-        "sha256": "441c4cc182acfa8fbbc4b5870a62dff6cd7cbd70e2a8ed753a9e8ae88f05f9ec"
+        "size": 852,
+        "sha256": "522a9e66061a27c75d96e55a937fd3ab9dbf37586f4546cca42ef2b98b0c3c6b"
       },
       "hooks": [
         "onRequest"
@@ -871,8 +871,8 @@
       },
       "cover": {
         "url": "https://raw.githubusercontent.com/Ebony-Vinyl/ofm-extensions/main/packages/system-prompt/cover.svg",
-        "size": 838,
-        "sha256": "65ab2c703a0c5ab203464a7e77261af6cbef4412086425fd9bf11f54773b22e1"
+        "size": 852,
+        "sha256": "df63fe5fb870f6138be8bf0860778bc3197d47cc6be2c48623683ed3a3525c72"
       },
       "hooks": [
         "onRequest"
@@ -909,7 +909,7 @@
         "sha256": "d98112b8ff46b2e9340e21a898c7ed13042baa6b0fa94635dc87be4a44ed657e"
       },
       "description": "通过本机社区桥运行 magpie-websearch 的搜索通道，仅在本轮用户消息以 [search] 开头时附加结果，普通对话不会发送到搜索服务。",
-      "author": "OFM Extensions maintainers",
+      "author": "guotree (https://github.com/guotree)",
       "license": "MIT",
       "homepage": "https://github.com/guotree/magpie-websearch",
       "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
