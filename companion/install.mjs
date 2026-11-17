@@ -3,6 +3,7 @@ import path from 'node:path'
 import { spawn } from 'node:child_process'
 import { randomBytes } from 'node:crypto'
 import { writeConfig } from './config.mjs'
+import { installCompression } from './install-compression.mjs'
 
 // Run explicitly: this program installs pinned upstream code OUTSIDE the sandbox.
 const directory = process.argv[2]
@@ -21,6 +22,7 @@ await new Promise((resolve, reject) => {
   child.once('exit', code => code === 0 ? resolve() : reject(new Error('固定版本上游插件安装失败：' + code)))
 })
 const source = name => './node_modules/' + lock[name].alias
+await installCompression(path.join(root, source('compression')))
 await writeConfig(file, {
   token: randomBytes(32).toString('hex'),
   dataDir: './archive', projects: {},
