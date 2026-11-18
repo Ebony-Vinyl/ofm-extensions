@@ -5,7 +5,7 @@
   "type": "channel",
   "name": "DeepAI Code",
   "description": "直连 DeepAI Code，使用本人的 API Key 与实际设备指纹，动态区分 Chat/Responses 模型；遵循平台免费及付费额度。",
-  "author": "OFM Extensions maintainers",
+  "author": "aqiu817 (https://github.com/aqiu817)",
   "license": "MIT",
   "homepage": "https://github.com/aqiu817/magpie-deepaicode",
   "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",

@@ -5,7 +5,7 @@
   "type": "enhancement",
   "name": "多源网页搜索",
   "description": "通过本机社区桥运行 magpie-websearch 的搜索通道，仅在本轮用户消息以 [search] 开头时附加结果，普通对话不会发送到搜索服务。",
-  "author": "OFM Extensions maintainers",
+  "author": "guotree (https://github.com/guotree)",
   "license": "MIT",
   "homepage": "https://github.com/guotree/magpie-websearch",
   "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",

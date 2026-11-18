@@ -5,7 +5,7 @@
   "type": "enhancement",
   "name": "上下文压缩",
   "description": "通过本机社区桥调用 compress-core 压缩管线；默认保护系统提示和最近一轮，关闭原文采集、LLM 压缩及无检索存储的折叠策略。",
-  "author": "OFM Extensions maintainers",
+  "author": "manjughosa (https://github.com/manjughosa)",
   "license": "MIT",
   "homepage": "https://github.com/manjughosa/magpie-compress-core",
   "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
