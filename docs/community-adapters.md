@@ -89,6 +89,16 @@ bun companion/cli.mjs search /absolute/private/ofm-community/config.json 搜索�
 
 `context-compression` 在桥内调用固定版本的 `pipeline.js`，默认使用上游的 Lite、RTK、Codex Responses、Headroom、Read Lifecycle 策略。压缩可能改变历史文本，默认保留 system 和最近一轮；更激进策略需用户在 `compression.options.strategies` 手动启用。不同策略对协议/文本形状的支持以原上游实现为准，不承诺每条消息都缩短。
 
+当前安装器会在下载完成后，将该依赖的 `engines/rtk/` 替换为本仓库 `companion/compression/` 实现，其他策略继续使用固定上游。替换参考了原行为和规则，不属于未接触源码的 clean-room 实现，不以此宣称消除许可义务；原依赖 LICENSE/NOTICE 继续保留。
+
+已有安装需先停止社区桥，再执行以下迁移，完成后重启。仅更新市场扩展不会自动更新本机桥。迁移先核对依赖包名和 0.5.0 版本，只替换 RTK 目录，不修改账号和配置；目录切换失败会尝试恢复旧目录。更新前应保留私有目录备份，回退时停止桥并恢复备份。
+
+```bash
+node companion/install-compression.mjs /absolute/private/ofm-community/config.json
+```
+
+开发验收：`node --experimental-vm-modules --test tests/*.test.mjs` 在独立压缩替换分支为 59 项通过、0 项跳过；`node tests/compression-parity.mjs /absolute/path/to/pinned-compress-core` 已验证 176 组引擎输入、配置与状态记录，并运行安装后的真实管线。一万行重复日志交替基准本轮耗时下降约 38%，不代表所有输入或线上整体性能。真实宿主、完整发布及许可证来源审查仍未完成。
+
 默认请求上限 512000 字节（`compression.options.maxBytes`），策略间预算 50ms。直接调用纯管线，不调用上游遥测、原文采集或统计页面钩子；强制关闭 `llm`、`session-dedup` 和 `ccr`，避免后台模型调用和没有检索存储的标记。需要可逆折叠时启用下述独立扩展。
 
 ## 可逆上下文折叠

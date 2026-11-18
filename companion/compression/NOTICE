@@ -1,0 +1,27 @@
+OFM community compression replacement
+Copyright (c) 2026 OFM Extensions contributors
+
+This implementation replaces the RTK engine directory in compress-core 0.5.0.
+The implementation was written after examining the prior source and behavior.
+Filter definitions, protocol behavior and configuration compatibility were
+adapted from the following source; this is not a clean-room implementation:
+
+  manjughosa/magpie-compress-core
+  https://github.com/manjughosa/magpie-compress-core
+  Reference commit: 630e2d512b1e2e5a063562f664dbf6e2accfb103
+  Copyright (c) diegosouzapw, OmniRoute contributors
+  Copyright (c) 2026 magpie-community contributors
+  Copyright (c) 2026 Manjughosa
+  MIT license text: LICENSES/compress-core-MIT.txt
+
+The reference package records its RTK engine as a port through OmniRoute of:
+  RTK: https://github.com/rtk-ai/rtk
+  Apache-2.0 license text: LICENSES/Apache-2.0.txt
+The reference package's root NOTICE, LICENSES and PROVENANCE.json are retained
+by the installer. This directory does not replace those provenance records.
+
+Changes include scanning consecutive runs without splitting all input lines,
+bounded grouping samples, shared protocol traversal, compiling filter patterns
+per invocation, and corrected handling of shell quoting and escaped separators.
+Prior engine source files are removed from the installed RTK directory after
+successful replacement; license and attribution records are preserved.
