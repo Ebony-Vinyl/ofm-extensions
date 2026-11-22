@@ -5,7 +5,7 @@
   "type": "channel",
   "name": "AMD Radeon Cloud",
   "description": "使用自己的 AMD Radeon Cloud API Key，动态读取可聊天模型，通过标准 Chat Completions 请求生成。额度与账号审核遵循 AMD 服务规则。",
-  "author": "OFM Extensions maintainers",
+  "author": "aqiu817",
   "license": "MIT",
   "homepage": "https://github.com/aqiu817/magpie-amd-cloud",
   "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
