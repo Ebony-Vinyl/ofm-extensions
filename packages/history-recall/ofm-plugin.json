@@ -5,7 +5,7 @@
   "type": "enhancement",
   "name": "本机历史召回",
   "description": "通过本机社区桥调用 deja-vu，按已授权项目检索本机会话；仅把召回内容作为不可信参考附到本轮用户消息。",
-  "author": "OFM Extensions maintainers",
+  "author": "vshulcz",
   "license": "MIT",
   "homepage": "https://github.com/vshulcz/deja-vu",
   "repository": "https://github.com/Ebony-Vinyl/ofm-extensions",
